@@ -1,7 +1,51 @@
-import React from 'react';
+import { EmailIcon } from '@chakra-ui/icons';
+import { Icon, chakra, Link, Flex, Text } from '@chakra-ui/react';
+import React, { useMemo } from 'react';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
+import { MdEmail } from 'react-icons/md';
+import styles from './Footer.module.scss';
 
 type Props = {};
 
 export default function Footer({  }: Props) {
-	return <div>Footer</div>;
+	const socials = useMemo(
+		() => [
+			{
+				id: 'linkedin-link',
+				url: 'https://www.linkedin.com/in/nelson-ha-3743b7117/',
+				icon: AiFillLinkedin
+			},
+			{
+				id: 'github-link',
+				url: 'github',
+				icon: AiFillGithub
+			},
+			{
+				id: 'instagram-link',
+				url: 'instagram',
+				icon: AiFillInstagram
+			},
+			{
+				id: 'email-link',
+				url: 'email',
+				icon: MdEmail
+			}
+		],
+		[]
+	);
+
+	return (
+		<Flex className={`${styles.footerContainer}`} flexDir={'column'} alignItems={'center'}>
+			<Flex my={3}>
+				{socials.map(({ id, url, icon }) => (
+					<Link key={id} target={'_blank'} href={url} mx={2}>
+						<Icon id={id} as={icon} boxSize={'6'} />
+					</Link>
+				))}
+			</Flex>
+			<Text fontSize={14} letterSpacing={'tight'}>
+				© 2022 Nelson Ha
+			</Text>
+		</Flex>
+	);
 }
