@@ -16,8 +16,9 @@ export default function NavLink({ href, text }: Props) {
 		<Link href={href} passHref>
 			<ChakraLink
 				fontWeight={isActive ? 'semibold' : 'normal'}
-				_focus={{outline: 'none'}}
+				_focus={{ outline: 'none' }}
 				display={{ base: 'none', md: 'inline-block' }}
+				_hover={{ textDecoration: isActive ? 'none' : 'underline' }}
 				p={1}
 				px={{ sm: 3 }}
 				py={{ sm: 2 }}

@@ -16,7 +16,9 @@ import React from 'react';
 import NavLink from '../NavLink/NavLink';
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
-type Props = {};
+type Props = {
+	onToggle: () => void
+};
 
 export default function Header(props: Props) {
 	const { colorMode, toggleColorMode: toggle } = useColorMode();
@@ -55,7 +57,7 @@ export default function Header(props: Props) {
 				pb={{ base: 8, sm: 16 }}
 			>
 				<chakra.div>
-					<HamburgerMenu />
+					<HamburgerMenu onToggle={props.onToggle}/>
 					<NavLink href="/" text="Home" />
 					<NavLink href="/about" text="About" />
 					<NavLink href="/experience" text="Experience" />

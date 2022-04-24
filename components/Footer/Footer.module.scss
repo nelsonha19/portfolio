@@ -1,6 +1,12 @@
 .footerContainer {
 	opacity: 0.85;
 
+	a {
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
 	a:focus {
 		outline: none;
 	}

@@ -14,10 +14,20 @@ import {
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import styles from './HamburgerMenu.module.scss';
+import Footer from '../Footer/Footer';
 
-export default function HamburgerMenu() {
+type Props = {
+	onToggle: () => void;
+};
+
+export default function HamburgerMenu(props: Props) {
 	const bg = useColorModeValue('white', 'gray.800');
 	const { isOpen, onToggle } = useDisclosure();
+
+	const menuToggle = () => {
+		onToggle();
+		props.onToggle();
+	};
 
 	let ListItem = (props: any) => (
 		<ChakraListItem {...props} mb={2} whiteSpace={'nowrap'} fontSize={'4xl'} fontWeight={'semibold'} />
@@ -29,17 +39,15 @@ export default function HamburgerMenu() {
 				display={{ base: 'inline-block', md: 'none' }}
 				variant={'link'}
 				_focus={{ outline: 'none' }}
-				onClick={onToggle}
+				onClick={menuToggle}
 			>
 				{!isOpen ? <HamburgerIcon w={9} h={9} /> : <CloseIcon />}
 			</Button>
 			<Collapse in={isOpen} animateOpacity>
 				<Flex
 					flexDir={'column'}
-					justifyContent={'space-between'}
 					pos={'absolute'}
 					pt={6}
-					pl={4}
 					zIndex={99}
 					m={0}
 					mt={8}
@@ -64,7 +72,7 @@ export default function HamburgerMenu() {
 							</Link>
 						</ListItem>
 					</UnorderedList>
-					<Box mb={10}>Footer stuff</Box>
+					<Footer />
 				</Flex>
 			</Collapse>
 		</React.Fragment>
