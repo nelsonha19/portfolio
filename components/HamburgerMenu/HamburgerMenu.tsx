@@ -54,6 +54,7 @@ export default function HamburgerMenu(props: Props) {
 					w={'100%'}
 					h={'92vh'}
 					bgColor={bg}
+					display={{ md: 'none' }}
 				>
 					<UnorderedList className={styles.mobileMenu} display={'flex'} flexDirection={'column'}>
 						<ListItem>

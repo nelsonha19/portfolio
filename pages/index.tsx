@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 				accusantium nihil, excepturi quo, odio obcaecati rem, quia quidem animi quibusdam totam fugit sit.
 				Perspiciatis eum magni ad obcaecati aut odit explicabo deleniti! Facilis asperiores error nam totam vel
 				temporibus nobis?
-			</Container>;
+			</Container>
 		</div>
 	);
 };

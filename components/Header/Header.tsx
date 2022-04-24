@@ -47,11 +47,13 @@ export default function Header(props: Props) {
 	};
 
 	return (
+		<Flex {...props} justify={'center'}>
 			<chakra.nav
 				display={'flex'}
 				alignItems={'center'}
 				justifyContent={'space-between'}
 				w="100%"
+				maxW={'4xl'}
 				position={'relative'}
 				pt={8}
 				pb={{ base: 8, sm: 16 }}
@@ -93,6 +95,6 @@ export default function Header(props: Props) {
 						</Tooltip>
 					</Flex>
 				</chakra.div>
-			</chakra.nav>
+			</chakra.nav></Flex>
 	);
 }
