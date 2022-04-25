@@ -17,7 +17,7 @@ export default function Footer({  }: Props) {
 			},
 			{
 				id: 'github-link',
-				url: 'github',
+				url: 'https://github.com/nelsonha19',
 				icon: AiFillGithub
 			},
 			{
