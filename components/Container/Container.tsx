@@ -11,16 +11,22 @@ export default function Container(props: Props) {
 	const { isOpen, onToggle } = useDisclosure();
 
 	return (
-		<chakra.div mx={8}>
+		<chakra.div
+			mx={{ base: 2, md: 8 }}
+			display={'flex'}
+			flexDir={'column'}
+			h={'100vh'}
+			justifyContent="space-between"
+		>
 			<Header onToggle={onToggle} />
 			<Fade in={!isOpen}>
 				<Flex justify={'center'}>
 					<chakra.div w="100%" maxW={'4xl'}>
 						{props.children}
-						<Footer />
 					</chakra.div>
 				</Flex>
 			</Fade>
+			<Footer />
 		</chakra.div>
 	);
 }

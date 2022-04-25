@@ -56,7 +56,6 @@ export default function Header(props: Props) {
 				maxW={'4xl'}
 				position={'relative'}
 				pt={8}
-				pb={{ base: 8, sm: 16 }}
 			>
 				<chakra.div>
 					<HamburgerMenu onToggle={props.onToggle}/>

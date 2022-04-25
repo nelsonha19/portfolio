@@ -1,5 +1,5 @@
 import { EmailIcon } from '@chakra-ui/icons';
-import { Icon, chakra, Link, Flex, Text } from '@chakra-ui/react';
+import { Icon, chakra, Link, Flex, Text, Divider } from '@chakra-ui/react';
 import React, { useMemo } from 'react';
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
@@ -37,10 +37,11 @@ export default function Footer({  }: Props) {
 	return (
 		<Flex
 			className={`${styles.footerContainer}`}
-			mt={{ base: 10, md: 20 }}
+			my={{ base: 10, md: 25 }}
 			flexDir={'column'}
 			alignItems={'center'}
 		>
+			<Divider opacity={1} mb={3} />
 			<Flex my={3}>
 				{socials.map(({ id, url, icon }) => (
 					<Link key={id} target={'_blank'} href={url} mx={2}>

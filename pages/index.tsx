@@ -1,4 +1,4 @@
-import { chakra, Flex, Heading, Image, Text, Box } from '@chakra-ui/react';
+import { chakra, Flex, Heading, Image, Text, Button } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import NextImage from 'next/image';
@@ -7,6 +7,8 @@ import Header from '../components/Header/Header';
 import Container from '../components/Container/Container';
 import { useEffect } from 'react';
 import useIsDarkMode from '../utils/useIsDarkMode';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import Link from '../components/Link/Link';
 
 const Home: NextPage = () => {
 	const Avatar = chakra(NextImage, {
@@ -23,8 +25,14 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Container>
-				<Flex className={styles.bioContainer} flexDir={'column'} alignItems={'center'} py={12}>
-					<Flex flexDir={'column'} alignItems={'center'} my={10}>
+				<Flex
+					h={'80vh'}
+					className={styles.bioContainer}
+					flexDir={'column'}
+					alignItems={'center'}
+					justify={'center'}
+				>
+					<Flex flexDir={'column'} alignItems={'center'} py={10} h={'40%'} justify={'space-evenly'}>
 						<Image
 							// className={isDark && 'grayscale'}
 							src="/avatar.jpg"
@@ -33,7 +41,7 @@ const Home: NextPage = () => {
 							borderRadius={'full'}
 						/>
 						{/* <Avatar src="/avatar.jpg" alt="Nelson Ha" width={120} height={120} borderRadius="full" /> */}
-						<Heading as={'h1'} size={'3xl'} py={2} textAlign={'center'}>
+						<Heading as={'h1'} size={'3xl'} textAlign={'center'}>
 							Nelson Ha
 						</Heading>
 						<Heading as={'h2'} size={'md'} fontWeight={'medium'} opacity={0.95} textAlign={'center'}>
@@ -41,9 +49,16 @@ const Home: NextPage = () => {
 						</Heading>
 					</Flex>
 					<Text maxW={'75%'}>
-						some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iusto voluptatum mollitia
-						tempora animi esse laborum culpa, molestiae libero provident.
+						I'm a full-stack software engineer with 3 years experience currently working at Commonwealth
+						Bank.{' '}
+						<Button variant={'link'} rightIcon={<ArrowForwardIcon />}>
+							<Link href="/about">Learn more about me </Link>
+						</Button>
 					</Text>
+					<Flex mt={12}>
+						<Button variant={'ghost'}>Contact Me</Button>
+						<Button variant={'solid'}>Whatsapp phone?</Button>
+					</Flex>
 				</Flex>
 			</Container>
 		</div>
