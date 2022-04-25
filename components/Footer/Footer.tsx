@@ -35,7 +35,12 @@ export default function Footer({  }: Props) {
 	);
 
 	return (
-		<Flex className={`${styles.footerContainer}`} mt={{ base: 10, md: 0 }} flexDir={'column'} alignItems={'center'}>
+		<Flex
+			className={`${styles.footerContainer}`}
+			mt={{ base: 10, md: 20 }}
+			flexDir={'column'}
+			alignItems={'center'}
+		>
 			<Flex my={3}>
 				{socials.map(({ id, url, icon }) => (
 					<Link key={id} target={'_blank'} href={url} mx={2}>

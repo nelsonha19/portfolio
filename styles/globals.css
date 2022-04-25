@@ -24,6 +24,10 @@ a {
 	display: table;
 }
 
+.grayscale {
+	filter: grayscale(100%);
+}
+
 * {
 	box-sizing: border-box;
 }

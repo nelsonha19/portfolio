@@ -1,12 +1,20 @@
-import { Button } from '@chakra-ui/react';
+import { chakra, Flex, Heading, Image, Text, Box } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header/Header';
 import Container from '../components/Container/Container';
+import { useEffect } from 'react';
+import useIsDarkMode from '../utils/useIsDarkMode';
 
 const Home: NextPage = () => {
+	const Avatar = chakra(NextImage, {
+		shouldForwardProp: (prop) => [ 'width', 'height', 'src', 'alt' ].includes(prop)
+	});
+
+	const isDark = useIsDarkMode();
+
 	return (
 		<div>
 			<Head>
@@ -15,16 +23,28 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Container>
-				Overview content stuff Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet in dolorem odio?
-				Sapiente fuga explicabo veniam laboriosam id praesentium consectetur repellat rerum et est molestiae
-				voluptas perspiciatis unde corporis, enim distinctio ipsa consequuntur deleniti pariatur dolore officiis
-				sed ipsum commodi modi! Sapiente fugit porro mollitia? Sed quod minus mollitia saepe ratione rerum ad
-				ipsum placeat ipsam, autem excepturi labore nulla optio accusamus iure laboriosam inventore? Quas
-				voluptatum magni, inventore illum cum ipsam non natus vero nihil, repellendus alias eligendi expedita
-				animi iste, ipsa omnis assumenda. Distinctio veniam deserunt corporis officia similique asperiores
-				accusantium nihil, excepturi quo, odio obcaecati rem, quia quidem animi quibusdam totam fugit sit.
-				Perspiciatis eum magni ad obcaecati aut odit explicabo deleniti! Facilis asperiores error nam totam vel
-				temporibus nobis?
+				<Flex className={styles.bioContainer} flexDir={'column'} alignItems={'center'} py={12}>
+					<Flex flexDir={'column'} alignItems={'center'} my={10}>
+						<Image
+							// className={isDark && 'grayscale'}
+							src="/avatar.jpg"
+							boxSize={{ base: '120px', md: '160px' }}
+							alt="te"
+							borderRadius={'full'}
+						/>
+						{/* <Avatar src="/avatar.jpg" alt="Nelson Ha" width={120} height={120} borderRadius="full" /> */}
+						<Heading as={'h1'} size={'3xl'} py={2} textAlign={'center'}>
+							Nelson Ha
+						</Heading>
+						<Heading as={'h2'} size={'md'} fontWeight={'medium'} opacity={0.95} textAlign={'center'}>
+							Software Engineer at <chakra.span fontWeight={'semibold'}>Commonwealth Bank</chakra.span>
+						</Heading>
+					</Flex>
+					<Text maxW={'75%'}>
+						some text Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad iusto voluptatum mollitia
+						tempora animi esse laborum culpa, molestiae libero provident.
+					</Text>
+				</Flex>
 			</Container>
 		</div>
 	);
