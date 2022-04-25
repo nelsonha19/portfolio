@@ -1,14 +1,27 @@
-import { chakra, Flex, Heading, Image, Text, Button } from '@chakra-ui/react';
+import { chakra, Flex, Heading, Image, Text, Button, Icon } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import NextImage from 'next/image';
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header/Header';
 import Container from '../components/Container/Container';
-import { useEffect } from 'react';
 import useIsDarkMode from '../utils/useIsDarkMode';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import Link from '../components/Link/Link';
+import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
+import {
+	SiAwsamplify,
+	SiCsharp,
+	SiCss3,
+	SiHtml5,
+	SiJavascript,
+	SiPython,
+	SiSass,
+	SiTeamcity,
+	SiTypescript,
+	SiVisualstudiocode
+} from 'react-icons/si';
+import { FaAws, FaJava, FaReact } from 'react-icons/fa';
 
 const Home: NextPage = () => {
 	const Avatar = chakra(NextImage, {
@@ -16,6 +29,58 @@ const Home: NextPage = () => {
 	});
 
 	const isDark = useIsDarkMode();
+
+	const techs = [
+		{
+			name: 'Typescript',
+			icon: SiTypescript,
+			tooltipText: 'Typescript'
+		},
+		{
+			name: 'React',
+			icon: FaReact
+		},
+		{
+			name: 'Javascript',
+			icon: SiJavascript
+		},
+		{
+			name: 'Html',
+			icon: SiHtml5
+		},
+		{
+			name: 'css',
+			icon: SiCss3
+		},
+		{
+			name: 'sass',
+			icon: SiSass
+		},
+		{
+			name: 'aws',
+			icon: FaAws
+		},
+		{
+			name: 'teamcity',
+			icon: SiTeamcity
+		},
+		{
+			name: 'python',
+			icon: SiPython
+		},
+		{
+			name: 'vscode',
+			icon: SiVisualstudiocode
+		},
+		{
+			name: 'java',
+			icon: FaJava
+		},
+		{
+			name: 'dotnet',
+			icon: SiCsharp
+		}
+	];
 
 	return (
 		<div>
@@ -26,7 +91,14 @@ const Home: NextPage = () => {
 			</Head>
 			<Container>
 				<Flex className={styles.bioContainer} flexDir={'column'} alignItems={'center'} justify={'center'}>
-					<Flex flexDir={'column'} alignItems={'center'} py={10} h={'40%'} justify={'space-evenly'}>
+					<Flex
+						flexDir={'column'}
+						alignItems={'center'}
+						py={10}
+						mt={{ md: -20 }}
+						h={'40%'}
+						justify={'space-evenly'}
+					>
 						<Image
 							// className={isDark && 'grayscale'}
 							src="/avatar.jpg"
@@ -67,6 +139,12 @@ const Home: NextPage = () => {
 						<Button variant={'ghost'}>Contact Me</Button>
 						<Button variant={'solid'}>Whatsapp phone?</Button>
 					</Flex>
+				</Flex>
+				<Flex flexDir={'column'} alignItems={'center'} justify={'space-between'} py={4} mt={10}>
+					<Heading as={'h3'} size={'md'} mb={6}>
+						Technologies that I frequently use:
+					</Heading>
+					<TechnologiesGrid iconArray={techs} iconSize={12} gridGap={'5'} />
 				</Flex>
 			</Container>
 		</div>
