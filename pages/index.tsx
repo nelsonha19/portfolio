@@ -25,13 +25,7 @@ const Home: NextPage = () => {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Container>
-				<Flex
-					h={'80vh'}
-					className={styles.bioContainer}
-					flexDir={'column'}
-					alignItems={'center'}
-					justify={'center'}
-				>
+				<Flex className={styles.bioContainer} flexDir={'column'} alignItems={'center'} justify={'center'}>
 					<Flex flexDir={'column'} alignItems={'center'} py={10} h={'40%'} justify={'space-evenly'}>
 						<Image
 							// className={isDark && 'grayscale'}
@@ -44,15 +38,29 @@ const Home: NextPage = () => {
 						<Heading as={'h1'} size={'3xl'} textAlign={'center'}>
 							Nelson Ha
 						</Heading>
-						<Heading as={'h2'} size={'md'} fontWeight={'medium'} opacity={0.95} textAlign={'center'}>
+						<Heading
+							as={'h2'}
+							fontSize={{ base: 'sm', md: 'md' }}
+							fontWeight={'normal'}
+							opacity={0.95}
+							textAlign={'center'}
+						>
 							Software Engineer at <chakra.span fontWeight={'semibold'}>Commonwealth Bank</chakra.span>
+							<Image
+								src="/cba.svg"
+								boxSize={{ base: 10, md: 14 }}
+								alt=""
+								display={'inline'}
+								verticalAlign={'middle'}
+								mb={'10px'}
+							/>
 						</Heading>
 					</Flex>
 					<Text maxW={'75%'}>
-						I'm a full-stack software engineer with 3 years experience currently working at Commonwealth
-						Bank.{' '}
+						I&apos;m a full-stack software engineer with 3 years experience currently working at
+						Commonwealth Bank.{' '}
 						<Button variant={'link'} rightIcon={<ArrowForwardIcon />}>
-							<Link href="/about">Learn more about me </Link>
+							<Link href="/about"> Learn more about me </Link>
 						</Button>
 					</Text>
 					<Flex mt={12}>
