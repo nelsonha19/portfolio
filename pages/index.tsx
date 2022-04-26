@@ -9,19 +9,7 @@ import useIsDarkMode from '../utils/useIsDarkMode';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import Link from '../components/Link/Link';
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
-import {
-	SiAwsamplify,
-	SiCsharp,
-	SiCss3,
-	SiHtml5,
-	SiJavascript,
-	SiPython,
-	SiSass,
-	SiTeamcity,
-	SiTypescript,
-	SiVisualstudiocode
-} from 'react-icons/si';
-import { FaAws, FaJava, FaReact } from 'react-icons/fa';
+import { HOME_PAGE_TECH_STACKS } from '../utils/constants';
 
 const Home: NextPage = () => {
 	const Avatar = chakra(NextImage, {
@@ -29,58 +17,6 @@ const Home: NextPage = () => {
 	});
 
 	const isDark = useIsDarkMode();
-
-	const techs = [
-		{
-			name: 'Typescript',
-			icon: SiTypescript,
-			tooltipText: 'Typescript'
-		},
-		{
-			name: 'React',
-			icon: FaReact
-		},
-		{
-			name: 'Javascript',
-			icon: SiJavascript
-		},
-		{
-			name: 'Html',
-			icon: SiHtml5
-		},
-		{
-			name: 'css',
-			icon: SiCss3
-		},
-		{
-			name: 'sass',
-			icon: SiSass
-		},
-		{
-			name: 'aws',
-			icon: FaAws
-		},
-		{
-			name: 'teamcity',
-			icon: SiTeamcity
-		},
-		{
-			name: 'python',
-			icon: SiPython
-		},
-		{
-			name: 'vscode',
-			icon: SiVisualstudiocode
-		},
-		{
-			name: 'java',
-			icon: FaJava
-		},
-		{
-			name: 'dotnet',
-			icon: SiCsharp
-		}
-	];
 
 	return (
 		<div>
@@ -95,7 +31,7 @@ const Home: NextPage = () => {
 						flexDir={'column'}
 						alignItems={'center'}
 						py={10}
-						mt={{ md: -20 }}
+						// mt={{ md: -20 }}
 						h={'40%'}
 						justify={'space-evenly'}
 					>
@@ -141,10 +77,13 @@ const Home: NextPage = () => {
 					</Flex>
 				</Flex>
 				<Flex flexDir={'column'} alignItems={'center'} justify={'space-between'} py={4} mt={10}>
-					<Heading as={'h3'} size={'md'} mb={6}>
-						Technologies that I frequently use:
+					<Heading as={'h3'} size={'md'} mb={6} textAlign="center">
+						Some of my favourite technologies
 					</Heading>
-					<TechnologiesGrid iconArray={techs} iconSize={12} gridGap={'5'} />
+					<TechnologiesGrid iconArray={HOME_PAGE_TECH_STACKS} iconSize={10} gridGap={'5'} />
+					<Button variant={'link'} color="burlywood" rightIcon={<ArrowForwardIcon />} mt={3}>
+						<Link href="/about"> See my full set of skills </Link>
+					</Button>
 				</Flex>
 			</Container>
 		</div>
