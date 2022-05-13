@@ -1,0 +1,12 @@
+.tech {
+	transition: all .1s ease-in-out;
+	opacity: .9;
+
+	&_hovered {
+		transform: scale(1.1);
+		transform: translateY(-5px);
+		background-color: #fed7d7 !important;
+		color: #822727 !important;
+		opacity: 1;
+	}
+}

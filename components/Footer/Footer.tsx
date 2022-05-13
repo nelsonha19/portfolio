@@ -1,8 +1,9 @@
 import { EmailIcon } from '@chakra-ui/icons';
-import { Icon, chakra, Link, Flex, Text, Divider } from '@chakra-ui/react';
+import { Icon, chakra, Flex, Text, Divider } from '@chakra-ui/react';
 import React, { useMemo } from 'react';
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillTwitterSquare, AiOutlineMail } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
+import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
 import styles from './Footer.module.scss';
 
 type Props = {};
@@ -21,9 +22,9 @@ export default function Footer({  }: Props) {
 				icon: AiFillGithub
 			},
 			{
-				id: 'instagram-link',
-				url: 'instagram',
-				icon: AiFillInstagram
+				id: 'twitter-link',
+				url: 'https://twitter.com/adaywithnelson',
+				icon: AiFillTwitterSquare
 			},
 			{
 				id: 'email-link',
@@ -44,9 +45,9 @@ export default function Footer({  }: Props) {
 			<Divider opacity={1} mb={3} />
 			<Flex my={3}>
 				{socials.map(({ id, url, icon }) => (
-					<Link key={id} target={'_blank'} href={url} mx={2}>
+					<ChakraNextLink key={id} target={'_blank'} href={url} mx={2}>
 						<Icon id={id} as={icon} boxSize={'6'} />
-					</Link>
+					</ChakraNextLink>
 				))}
 			</Flex>
 			<Text fontSize={14} letterSpacing={'tight'}>

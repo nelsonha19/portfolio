@@ -10,9 +10,10 @@ import {
 	Flex,
 	useColorModeValue
 } from '@chakra-ui/react';
-import React from 'react';
-import { IconType } from 'react-icons';
-import { techArrayType } from '../../utils/constants';
+import cn from 'classnames';
+import React, { useState } from 'react';
+import { techArrayType } from '../../utils/technologyConstants';
+import styles from './Technologies.Grid.module.scss';
 
 type Props = {
 	iconArray: techArrayType[];
@@ -20,22 +21,46 @@ type Props = {
 	iconSize?: string | number;
 	gridGap?: string | number;
 	columns?: number | { base?: number; sm?: number; md?: number };
+	hoverHandler?: (tech: string) => void;
+	hoveredTech?: string;
 };
 
-export default function TechnologiesGrid({ iconArray, iconSize = 10, gridGap = 1, columns, usesSvg = false }: Props) {
+export default function TechnologiesGrid({
+	iconArray,
+	iconSize = 10,
+	gridGap = 1,
+	columns,
+	usesSvg = false,
+	hoverHandler,
+	hoveredTech
+}: Props) {
 	const darkModeStyle = useColorModeValue('', 'invert(100%');
 
 	return (
-		<SimpleGrid columns={columns || { base: 3, sm: 4, md: 6 }} spacing={gridGap} opacity={0.9}>
+		<SimpleGrid columns={columns || { base: 3, sm: 4, md: 6 }} spacing={gridGap}>
 			{iconArray.map((icon) => {
 				return (
-					<Tooltip key={icon.name} label={icon.name} placement="auto-end" openDelay={300}>
-						<Flex _hover={{ opacity: 0.8 }} align="center" justify={'center'}>
+					<Tooltip key={icon.name} label={icon.tooltipText} placement="auto-end" openDelay={1000}>
+						<Flex
+							_hover={{ opacity: 1 }}
+							align="center"
+							justify={'center'}
+							className={cn(
+								hoveredTech === icon.name ? `${styles.tech} ${styles.tech_hovered}` : styles.tech
+							)}
+							onMouseEnter={() => {
+								hoverHandler && hoverHandler(icon.name);
+							}}
+							onMouseLeave={() => {
+								hoverHandler && hoverHandler('');
+							}}
+						>
 							{usesSvg ? (
 								<Image
 									src={icon.svgPath}
 									alt={icon.name}
 									boxSize={iconSize}
+									id={icon.name}
 									style={icon.shouldInvert ? { filter: darkModeStyle } : {}}
 								/>
 							) : (

@@ -5,12 +5,15 @@ import { Link as ChakraLink } from '@chakra-ui/react';
 type Props = {
 	children: React.ReactNode;
 	href: string;
+	[rest: string]: any;
 };
 
 export default function Link(props: Props) {
 	return (
 		<NextLink href={props.href} passHref>
-			<ChakraLink {...props}>{props.children}</ChakraLink>
+			<ChakraLink target={props._target} {...props}>
+				{props.children}
+			</ChakraLink>
 		</NextLink>
 	);
 }

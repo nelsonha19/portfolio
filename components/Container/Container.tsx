@@ -1,4 +1,4 @@
-import { Fade, Flex, Link, useDisclosure, chakra } from '@chakra-ui/react';
+import { Fade, Flex, useDisclosure, chakra } from '@chakra-ui/react';
 import React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';

@@ -15,6 +15,7 @@ import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import styles from './HamburgerMenu.module.scss';
 import Footer from '../Footer/Footer';
+import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
 
 type Props = {
 	onToggle: () => void;
@@ -57,19 +58,13 @@ export default function HamburgerMenu(props: Props) {
 				>
 					<UnorderedList className={styles.mobileMenu} display={'flex'} flexDirection={'column'}>
 						<ListItem>
-							<Link href={'/'} passHref>
-								<ChakraLink>Home</ChakraLink>
-							</Link>
+							<ChakraNextLink href={'/'}>Home</ChakraNextLink>
 						</ListItem>
 						<ListItem>
-							<Link href={'/about'} passHref>
-								<ChakraLink>About</ChakraLink>
-							</Link>
+							<ChakraNextLink href={'/about'}>About</ChakraNextLink>
 						</ListItem>
 						<ListItem>
-							<Link href={'/'} passHref>
-								<ChakraLink>Experience</ChakraLink>
-							</Link>
+							<ChakraNextLink href={'/experience'}>Experience</ChakraNextLink>
 						</ListItem>
 					</UnorderedList>
 					<Footer />

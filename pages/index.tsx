@@ -9,9 +9,13 @@ import useIsDarkMode from '../utils/useIsDarkMode';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import Link from '../components/Link/Link';
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
-import { HOME_PAGE_TECH_STACKS } from '../utils/constants';
+import { HOME_PAGE_TECH_STACKS } from '../utils/technologyConstants';
+import { useState } from 'react';
+import ContactModal from '../components/ContactModal/ContactModal';
 
 const Home: NextPage = () => {
+	const [ contactModal, setContactModal ] = useState(false);
+
 	const Avatar = chakra(NextImage, {
 		shouldForwardProp: (prop) => [ 'width', 'height', 'src', 'alt' ].includes(prop)
 	});
@@ -37,7 +41,7 @@ const Home: NextPage = () => {
 					>
 						<Image
 							// className={isDark && 'grayscale'}
-							src="/avatar.jpg"
+							src="/uglyme.png"
 							boxSize={{ base: '120px', md: '160px' }}
 							alt="te"
 							borderRadius={'full'}
@@ -72,7 +76,10 @@ const Home: NextPage = () => {
 						</Button>
 					</Text>
 					<Flex mt={12}>
-						<Button variant={'ghost'}>Contact Me</Button>
+						<Button variant={'ghost'} onClick={() => setContactModal(true)}>
+							Contact Me
+						</Button>
+						<ContactModal isOpen={contactModal} closeModal={() => setContactModal(false)} />
 						<Button variant={'solid'}>Whatsapp phone?</Button>
 					</Flex>
 				</Flex>

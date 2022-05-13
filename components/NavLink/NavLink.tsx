@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
 
 type Props = {
 	href: string;
@@ -13,18 +14,17 @@ export default function NavLink({ href, text }: Props) {
 	const isActive = router.asPath === href;
 
 	return (
-		<Link href={href} passHref>
-			<ChakraLink
-				fontWeight={isActive ? 'semibold' : 'normal'}
-				_focus={{ outline: 'none' }}
-				display={{ base: 'none', md: 'inline-block' }}
-				_hover={{ textDecoration: isActive ? 'none' : 'underline' }}
-				p={1}
-				px={{ sm: 3 }}
-				py={{ sm: 2 }}
-			>
-				<span className="capsize">{text}</span>
-			</ChakraLink>
-		</Link>
+		<ChakraNextLink
+			href={href}
+			fontWeight={isActive ? 'semibold' : 'normal'}
+			_focus={{ outline: 'none' }}
+			display={{ base: 'none', md: 'inline-block' }}
+			_hover={{ textDecoration: isActive ? 'none' : 'underline' }}
+			p={1}
+			px={{ sm: 3 }}
+			py={{ sm: 2 }}
+		>
+			<span className="capsize">{text}</span>
+		</ChakraNextLink>
 	);
 }
