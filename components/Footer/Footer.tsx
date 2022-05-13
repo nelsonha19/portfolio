@@ -39,6 +39,7 @@ export default function Footer({  }: Props) {
 		<Flex
 			className={`${styles.footerContainer}`}
 			my={{ base: 10, md: 25 }}
+			pb={6}
 			flexDir={'column'}
 			alignItems={'center'}
 		>
@@ -51,7 +52,7 @@ export default function Footer({  }: Props) {
 				))}
 			</Flex>
 			<Text fontSize={14} letterSpacing={'tight'}>
-				© 2022 Nelson Ha
+				© 2022 Nelson Ha - Powered with ❤️
 			</Text>
 		</Flex>
 	);

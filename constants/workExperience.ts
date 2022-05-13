@@ -1,4 +1,5 @@
 export type workExperienceType = {
+	id: number;
 	role: string;
 	company: string;
 	description?: string[];
@@ -10,10 +11,16 @@ export type workExperienceType = {
 
 export const workExperience: workExperienceType[] = [
 	{
+		id: 1,
 		role: 'Software Engineer',
 		company: 'Commonwealth Bank',
 		description: [
 			'Doing full stack development in the homebuying domain',
+			'Working in an autonomous squad, responsible for delivering E2E',
+			'Working in an autonomous squad, responsible for delivering E2E',
+			'Working in an autonomous squad, responsible for delivering E2E',
+			'Working in an autonomous squad, responsible for delivering E2E',
+			'Working in an autonomous squad, responsible for delivering E2E',
 			'Working in an autonomous squad, responsible for delivering E2E'
 		],
 		startDate: '05 2022',
@@ -21,6 +28,7 @@ export const workExperience: workExperienceType[] = [
 		logoPath: '/cba.svg'
 	},
 	{
+		id: 2,
 		role: 'Technology Graduate',
 		company: 'Commonwealth Bank',
 		description: [
@@ -33,6 +41,7 @@ export const workExperience: workExperienceType[] = [
 		logoPath: '/cba.svg'
 	},
 	{
+		id: 3,
 		role: 'Software Developer',
 		company: "Sydney Children's Hospital",
 		description: [
@@ -44,6 +53,7 @@ export const workExperience: workExperienceType[] = [
 		isCurrent: false
 	},
 	{
+		id: 4,
 		role: 'Developer',
 		company: 'The Beauty Mart',
 		description: [

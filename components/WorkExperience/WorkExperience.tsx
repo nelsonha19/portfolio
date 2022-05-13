@@ -1,55 +1,34 @@
+import { Box, Flex, Heading, Image, List, ListItem, Text, Divider } from '@chakra-ui/react';
 import React from 'react';
-import { workExperience, workExperienceType } from '../../constants/workExperience';
-import { Box, Divider, Flex, Heading, Image, Text } from '@chakra-ui/react';
-import { AiOutlineArrowRight } from 'react-icons/ai';
-import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
+import { workExperienceType } from '../../constants/workExperience';
 
 type Props = { work: workExperienceType };
 
 export default function WorkExperience({ work }: Props) {
-	return (
-		<ChakraNextLink href={'/experience'} _hover={{ textDecoration: 'none' }}>
-			<Flex
-				direction={'row'}
-				justifyContent={'space-between'}
-				alignItems={'center'}
-				// bgColor="red.100"
-				height={'100px'}
-				my={2}
-			>
-				<Flex direction={'column'} justifyContent="center" alignItems={'center'} p={{ md: 5 }} pr={3}>
-					<Text fontSize={'xs'} textAlign={'center'} fontStyle={'italic'}>
-						{work.startDate}
-						<Text>to</Text>
-						{work.isCurrent ? 'Present' : work.endDate}
-					</Text>
-				</Flex>
+    return (
+        <Flex flexDir={'row'}
+            borderRadius={'lg'} justifyContent={'space-between'} alignItems={'center'} my={2} py={6} boxShadow={'md'}>
+            {work.logoPath && (
+                <>
+                <Image
+                    src={work.logoPath}
+                    boxSize={{ base: 16, md: 32 }}           
+                              alt="CommBank logo" 
+                    display={'inline'}
+                    verticalAlign={'middle'}
+                /><Divider orientation='vertical' mx={2} variant={'dashed'}/> </>
+            )}
 
-				<Divider orientation="vertical" />
+            <Flex flexGrow={1} flexDirection="column" justifyContent={'center'} pl={!work.logoPath ? 8 : 0}>
+                <Heading>{work.company}</Heading>
+                <Text>{work.role}</Text>
+                <Text>Started: {work.startDate}</Text>
+                <Text>Ended: {work.endDate}</Text>
 
-				{work.logoPath ? (
-					<Image
-						src={work.logoPath}
-						boxSize={{ base: 16, md: 24 }}
-						alt=""
-						display={'inline'}
-						verticalAlign={'middle'}
-					/>
-				) : (
-					<Box boxSize={{ base: 16, md: 24 }} display={'inline'} verticalAlign={'middle'} />
-				)}
-
-				<Flex flexGrow={1} flexDirection="column" justifyContent={'center'}>
-					<Heading as={'h4'} fontSize={{ base: 'sm', md: 'md' }}>
-						{work.company}
-					</Heading>
-					<Text fontSize={'sm'}>{work.role}</Text>
-				</Flex>
-
-				<Flex p={5}>
-					<AiOutlineArrowRight />
-				</Flex>
-			</Flex>
-		</ChakraNextLink>
-	);
+                {work.description?.map((desc, index) => <List key={index}>
+                    <ListItem>{desc}</ListItem>
+                </List>)}
+            </Flex>
+        </Flex>
+    );
 }

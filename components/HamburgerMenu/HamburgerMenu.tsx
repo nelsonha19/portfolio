@@ -1,18 +1,14 @@
-import React, { FC, useState } from 'react';
+import React from 'react';
 import {
 	Button,
 	Collapse,
-	chakra,
-	Link as ChakraLink,
 	ListItem as ChakraListItem,
 	UnorderedList,
 	useColorModeValue,
 	useDisclosure,
-	Box,
 	Flex
 } from '@chakra-ui/react';
 import { CloseIcon, HamburgerIcon } from '@chakra-ui/icons';
-import Link from 'next/link';
 import styles from './HamburgerMenu.module.scss';
 import Footer from '../Footer/Footer';
 import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';

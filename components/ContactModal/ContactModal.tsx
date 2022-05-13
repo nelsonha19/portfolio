@@ -7,18 +7,16 @@ type Props = {
 };
 
 export default function ContactModal(props: Props) {
-	// const { onOpen, onClose } = useDisclosure();
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
     const [loading, setLoading] = useState(false)
 
-    const handleNameChange = (e) => setName(e.target.value)
-    const handleEmailChange = (e) => setEmail(e.target.value)
-    const handleMessageChange = (e) => setMessage(e.target.value)
+    const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
+    const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)
   
     const isError = name === ''
-
 
 	return <>
         <Modal isOpen={props.isOpen} onClose={props.closeModal}>

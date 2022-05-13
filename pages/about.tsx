@@ -1,6 +1,5 @@
-import { ExternalLinkIcon, ArrowRightIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon,  ArrowForwardIcon } from '@chakra-ui/icons';
 import {
-	Box,
 	Flex,
 	Heading,
 	Image,
@@ -9,10 +8,6 @@ import {
 	UnorderedList,
 	ListItem,
 	Button,
-	Menu,
-	MenuButton,
-	MenuList,
-	MenuItem,
 	Accordion,
 	AccordionItem,
 	AccordionButton,
@@ -22,22 +17,22 @@ import {
 import React, { useState } from 'react';
 import Card from '../components/Card/Card';
 import Container from '../components/Container/Container';
-import Link from '../components/Link/Link';
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
 import { linksConstants } from '../constants/linksConstants';
-import { BsFillCalendar2EventFill, BsSave, BsSave2Fill } from 'react-icons/bs';
+import { BsFillCalendar2EventFill } from 'react-icons/bs';
 import {
 	ABOUT_PAGE_LANGUAGES,
 	ABOUT_PAGE_FRAMEWORKS,
 	ABOUT_PAGE_LIBRARIES,
 	ABOUT_PAGE_TOOLS,
-	ALL_TECH_ARRAY
+	ALL_TECH_ARRAY,
+	FULL_ARRAY
 } from '../constants/technologyConstants';
 import ContactModal from '../components/ContactModal/ContactModal';
 import TechTags from '../components/TechTags/TechTags';
-import WorkExperience from '../components/WorkExperience/WorkExperience';
+import WorkExperience from '../components/WorkExperience/WorkExperienceCard';
 import { workExperience } from '../constants/workExperience';
-import { Divider, Textarea } from '@chakra-ui/react';
+import { Divider } from '@chakra-ui/react';
 import ChakraNextLink from '../components/ChakraNextLink/ChakraNextLink';
 import ChakraNextLinkButton from '../components/ChakraNextLink/ChakraNextLinkButton';
 import EducationPanel from '../components/EducationPanel/EducationPanel';
@@ -96,8 +91,7 @@ export default function About({  }: Props) {
 					</Heading>
 					<Text textAlign={{ base: 'center', md: 'start' }}>
 						I am a software engineer based in Sydney, Australia. I have the capability to do Full Stack
-						Engineering, see below for my full list of technologies that I`&apos;`ve worked with. However I think
-						my biggest strength is my Front End development.
+						Engineering, see below for my full list of technologies that I&apos;ve worked with. My biggest strength is front end development 😉
 					</Text>
 
 					<Text>Quick links</Text>
@@ -197,7 +191,7 @@ export default function About({  }: Props) {
 						<AccordionPanel px={0}>
 							<Flex flexWrap={'wrap'} my={3}>
 								<TechTags
-									techArray={ALL_TECH_ARRAY}
+									techArray={FULL_ARRAY}
 									hoveredTech={hoveredTech}
 									hoverHandler={hoverHandler}
 								/>
