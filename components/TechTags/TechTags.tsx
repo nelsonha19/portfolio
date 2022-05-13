@@ -1,7 +1,7 @@
 import { HStack, Tag, Text } from '@chakra-ui/react';
 import cn from 'classnames'
 import React, { useState } from 'react';
-import { techArrayType } from '../../utils/technologyConstants';
+import { techArrayType } from '../../constants/technologyConstants';
 import styles from './TechTags.module.scss';
 
 type Props = {

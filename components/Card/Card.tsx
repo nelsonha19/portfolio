@@ -11,16 +11,12 @@ const Card: React.FC<CardProps> = ({ heading, children, ...rest }) => {
 	return (
 		<Flex
 			flexDir={'column'}
-			// boxShadow={'md'}
-			// border={'1px'}
-			// borderColor={'telegram.200'}
-			// borderRadius={'2xl'}
 			w={{ base: '90%', md: '50%' }}
-			mx={5}
-			p={5}
+			mx={{ base: 0, md: 3 }}
+			p={{ base: 0, md: 5 }}
 			{...rest}
 		>
-			<Heading as={'h3'} mb={4}>
+			<Heading as={'h3'} mb={4} fontSize={'lg'}>
 				{heading}
 			</Heading>
 			{children}

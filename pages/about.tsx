@@ -1,4 +1,4 @@
-import { ExternalLinkIcon, ArrowRightIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon, ArrowRightIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import {
 	Box,
 	Flex,
@@ -19,7 +19,7 @@ import Card from '../components/Card/Card';
 import Container from '../components/Container/Container';
 import Link from '../components/Link/Link';
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
-import { linksConstants } from '../utils/linksConstants';
+import { linksConstants } from '../constants/linksConstants';
 import { BsFillCalendar2EventFill, BsSave, BsSave2Fill } from 'react-icons/bs';
 import {
 	ABOUT_PAGE_LANGUAGES,
@@ -27,13 +27,15 @@ import {
 	ABOUT_PAGE_LIBRARIES,
 	ABOUT_PAGE_TOOLS,
 	ALL_TECH_ARRAY
-} from '../utils/technologyConstants';
+} from '../constants/technologyConstants';
 import ContactModal from '../components/ContactModal/ContactModal';
 import TechTags from '../components/TechTags/TechTags';
 import WorkExperience from '../components/WorkExperience/WorkExperience';
-import { workExperience } from '../utils/workExperience';
-import { Divider } from '@chakra-ui/react';
+import { workExperience } from '../constants/workExperience';
+import { Divider, Textarea } from '@chakra-ui/react';
 import ChakraNextLink from '../components/ChakraNextLink/ChakraNextLink';
+import ChakraNextLinkButton from '../components/ChakraNextLink/ChakraNextLinkButton';
+import EducationPanel from '../components/EducationPanel/EducationPanel';
 
 type Props = {};
 
@@ -54,14 +56,14 @@ export default function About({  }: Props) {
 			<Flex flexDir={'column'} align={'center'} justifyContent={'space-between'}>
 				<TechnologiesGrid
 					usesSvg
-					columns={{ base: 4, sm: 6, md: 5 }}
+					columns={{ base: 5, sm: 6, md: 5 }}
 					iconArray={arrayOfTech}
 					iconSize={16}
 					gridGap={2}
 					hoverHandler={hoverHandler}
 					hoveredTech={hoveredTech}
 				/>
-				<Heading size={'sm'} fontWeight={'medium'} mt={6}>
+				<Heading size={'sm'} fontWeight={'medium'} mt={3}>
 					{title}
 				</Heading>
 			</Flex>
@@ -118,7 +120,7 @@ export default function About({  }: Props) {
 				align={{ base: 'center', md: 'flex-start' }}
 			>
 				{/* Personal links */}
-				<Card id={'links-container'} heading="Links" my={{ base: 3, md: 0 }}>
+				<Card id={'links-container'} heading="Links" mb={{ base: 8, md: 0 }}>
 					<UnorderedList>
 						{linksConstants.map((link) => {
 							return (
@@ -127,7 +129,6 @@ export default function About({  }: Props) {
 									<ChakraNextLink
 										href={link.url}
 										isExternal
-										// _target={'blank'}
 										color={'telegram.500'}
 										fontWeight={'medium'}
 									>
@@ -155,8 +156,8 @@ export default function About({  }: Props) {
 			</Flex>
 
 			<Flex flexDirection={'column'} alignItems={'center'} py={10}>
-				<Heading as={'h3'} id="tech-matrix">
-					My tech stack
+				<Heading as={'h3'} fontSize={'x-large'} id="tech-matrix">
+					My frequently used technologies:
 				</Heading>
 				<SimpleGrid mt={10} columns={{ base: 1, md: 2 }} spacingX={1} spacingY={10} w={'100%'}>
 					{gridWithTitle('Programming Languages', ABOUT_PAGE_LANGUAGES)}
@@ -176,14 +177,25 @@ export default function About({  }: Props) {
 			</Flex>
 
 			<Flex flexDir={'column'}>
-				<Heading>Work Experience</Heading>
+				<Heading>Experience</Heading>
 				{workExperience.map((work) => (
 					<React.Fragment key={work.role}>
 						<WorkExperience work={work} />
 						<Divider />{' '}
 					</React.Fragment>
 				))}
+				<ChakraNextLinkButton
+					href="/experience"
+					textAlign={'center'}
+					mt={4}
+					variant={'link'}
+					rightIcon={<ArrowForwardIcon />}
+				>
+					View more details
+				</ChakraNextLinkButton>
 			</Flex>
+
+			<EducationPanel />
 		</Container>
 	);
 }

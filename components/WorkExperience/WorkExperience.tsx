@@ -1,5 +1,5 @@
 import React from 'react';
-import { workExperience, workExperienceType } from '../../utils/workExperience';
+import { workExperience, workExperienceType } from '../../constants/workExperience';
 import { Divider, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';

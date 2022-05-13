@@ -5,13 +5,13 @@ import NextImage from 'next/image';
 import styles from '../styles/Home.module.css';
 import Header from '../components/Header/Header';
 import Container from '../components/Container/Container';
-import useIsDarkMode from '../utils/useIsDarkMode';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import Link from '../components/Link/Link';
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid';
-import { HOME_PAGE_TECH_STACKS } from '../utils/technologyConstants';
+import { HOME_PAGE_TECH_STACKS } from '../constants/technologyConstants';
 import { useState } from 'react';
 import ContactModal from '../components/ContactModal/ContactModal';
+import ChakraNextLinkButton from '../components/ChakraNextLink/ChakraNextLinkButton';
 
 const Home: NextPage = () => {
 	const [ contactModal, setContactModal ] = useState(false);
@@ -19,8 +19,6 @@ const Home: NextPage = () => {
 	const Avatar = chakra(NextImage, {
 		shouldForwardProp: (prop) => [ 'width', 'height', 'src', 'alt' ].includes(prop)
 	});
-
-	const isDark = useIsDarkMode();
 
 	return (
 		<div>
@@ -71,9 +69,9 @@ const Home: NextPage = () => {
 					<Text maxW={'75%'}>
 						I&apos;m a full-stack software engineer with 3 years experience currently working at
 						Commonwealth Bank.{' '}
-						<Button variant={'link'} rightIcon={<ArrowForwardIcon />}>
-							<Link href="/about"> Learn more about me </Link>
-						</Button>
+						<ChakraNextLinkButton href={'/about'} variant="link" rightIcon={<ArrowForwardIcon />}>
+							Learn more about me
+						</ChakraNextLinkButton>
 					</Text>
 					<Flex mt={12}>
 						<Button variant={'ghost'} onClick={() => setContactModal(true)}>

@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import cn from 'classnames';
 import React, { useState } from 'react';
-import { techArrayType } from '../../utils/technologyConstants';
+import { techArrayType } from '../../constants/technologyConstants';
 import styles from './Technologies.Grid.module.scss';
 
 type Props = {
@@ -59,7 +59,7 @@ export default function TechnologiesGrid({
 								<Image
 									src={icon.svgPath}
 									alt={icon.name}
-									boxSize={iconSize}
+									boxSize={16}
 									id={icon.name}
 									style={icon.shouldInvert ? { filter: darkModeStyle } : {}}
 								/>
