@@ -12,7 +12,12 @@ import {
 	Menu,
 	MenuButton,
 	MenuList,
-	MenuItem
+	MenuItem,
+	Accordion,
+	AccordionItem,
+	AccordionButton,
+	AccordionPanel,
+	AccordionIcon
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Card from '../components/Card/Card';
@@ -51,6 +56,14 @@ export default function About({  }: Props) {
 		setHoveredTech(techName);
 	};
 
+	const scrollToId = (id: string) => {
+		const element = document.getElementById(id)
+		window.scrollTo({
+			top: element?.offsetTop,
+			behavior: "smooth"
+		})
+	}
+
 	const gridWithTitle = (title: string, arrayOfTech: any) => {
 		return (
 			<Flex flexDir={'column'} align={'center'} justifyContent={'space-between'}>
@@ -72,7 +85,7 @@ export default function About({  }: Props) {
 
 	return (
 		<Container>
-			<Flex my={10} flexDir={{ base: 'column', md: 'row' }} alignItems={{ base: 'center', md: 'flex-start' }}>
+			<Flex mt={10} flexDir={{ base: 'column', md: 'row' }} alignItems={{ base: 'center', md: 'flex-start' }}>
 				<Flex px={{ md: 6 }} justify="center" minW={'35%'} maxW={{ md: '35%' }}>
 					<Image src="/aboutme.jpg" w={{ base: '60%', md: '600px' }} h={'100%'} alt="Me" borderRadius={20} />
 				</Flex>
@@ -83,9 +96,22 @@ export default function About({  }: Props) {
 					</Heading>
 					<Text textAlign={{ base: 'center', md: 'start' }}>
 						I am a software engineer based in Sydney, Australia. I have the capability to do Full Stack
-						Engineering, see below for my full list of technologies that I've worked with. However I think
+						Engineering, see below for my full list of technologies that I`&apos;`ve worked with. However I think
 						my biggest strength is my Front End development.
 					</Text>
+
+					<Text>Quick links</Text>
+					<ul>
+						<li>
+							Technology array
+						</li>
+						<li onClick={() => scrollToId('experience')}>
+							Experience
+						</li>
+						<li onClick={() => scrollToId('education')}>
+							Education
+						</li>
+					</ul>
 
 					<Flex
 						flexDirection={'column'}
@@ -94,23 +120,13 @@ export default function About({  }: Props) {
 						justifyContent={'center'}
 						h={{ base: '100px', md: '200px' }}
 					>
-						<Heading size={'md'} my={3}>
+						<Heading size={'md'} my={1}>
 							Download Resume
 						</Heading>
-						<Menu>
-							<MenuButton as={Button} colorScheme={'telegram'} variant={'outline'}>
-								NelsonHa2022_Resume.pdf
-							</MenuButton>
-							<MenuList>
-								<MenuItem>
-									<ChakraNextLink href="/">Open in new tab</ChakraNextLink>
-								</MenuItem>
-								<MenuItem>Download</MenuItem>
-							</MenuList>
-						</Menu>
 					</Flex>
 				</Flex>
 			</Flex>
+			<Divider mb={10}/>
 
 			{/* The two cards */}
 			<Flex
@@ -154,6 +170,8 @@ export default function About({  }: Props) {
 					<ContactModal isOpen={contactModal} closeModal={() => setContactModal(false)} />
 				</Card>
 			</Flex>
+			<Divider mb={6}/>
+
 
 			<Flex flexDirection={'column'} alignItems={'center'} py={10}>
 				<Heading as={'h3'} fontSize={'x-large'} id="tech-matrix">
@@ -167,17 +185,32 @@ export default function About({  }: Props) {
 				</SimpleGrid>
 			</Flex>
 
-			<Flex flexDir={'column'} px={{ md: 3 }}>
-				<Heading as={'h4'} size={'md'}>
-					Tags
-				</Heading>
-				<Flex flexWrap={'wrap'} my={3}>
-					<TechTags techArray={ALL_TECH_ARRAY} hoveredTech={hoveredTech} hoverHandler={hoverHandler} />
-				</Flex>
-			</Flex>
+			<Accordion allowToggle defaultIndex={[ 0 ]}>
+				<AccordionItem>
+					<Flex flexDir={'column'} px={{ md: 0 }}>
+						<AccordionButton px={0}>
+							<Heading as={'h4'} size={'md'} flex={1} textAlign={'left'} >
+								Tech tags
+							</Heading>
+							<AccordionIcon />
+						</AccordionButton>
+						<AccordionPanel px={0}>
+							<Flex flexWrap={'wrap'} my={3}>
+								<TechTags
+									techArray={ALL_TECH_ARRAY}
+									hoveredTech={hoveredTech}
+									hoverHandler={hoverHandler}
+								/>
+							</Flex>
+						</AccordionPanel>
+					</Flex>
+				</AccordionItem>
+			</Accordion>
 
-			<Flex flexDir={'column'}>
-				<Heading>Experience</Heading>
+			<Flex flexDir={'column'} mt={16}>
+				<Heading as={'h4'} fontSize="x-large" id={'experience'}>
+					Experience
+				</Heading>
 				{workExperience.map((work) => (
 					<React.Fragment key={work.role}>
 						<WorkExperience work={work} />
@@ -191,7 +224,7 @@ export default function About({  }: Props) {
 					variant={'link'}
 					rightIcon={<ArrowForwardIcon />}
 				>
-					View more details
+					View my experience in detail
 				</ChakraNextLinkButton>
 			</Flex>
 

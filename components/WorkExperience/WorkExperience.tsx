@@ -1,6 +1,6 @@
 import React from 'react';
 import { workExperience, workExperienceType } from '../../constants/workExperience';
-import { Divider, Flex, Heading, Image, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
 
@@ -27,7 +27,7 @@ export default function WorkExperience({ work }: Props) {
 
 				<Divider orientation="vertical" />
 
-				{work.logoPath && (
+				{work.logoPath ? (
 					<Image
 						src={work.logoPath}
 						boxSize={{ base: 16, md: 24 }}
@@ -35,6 +35,8 @@ export default function WorkExperience({ work }: Props) {
 						display={'inline'}
 						verticalAlign={'middle'}
 					/>
+				) : (
+					<Box boxSize={{ base: 16, md: 24 }} display={'inline'} verticalAlign={'middle'} />
 				)}
 
 				<Flex flexGrow={1} flexDirection="column" justifyContent={'center'}>

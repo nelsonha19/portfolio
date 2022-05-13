@@ -21,8 +21,6 @@ export default function ContactModal(props: Props) {
 
 
 	return <>
-        {/* <Button onClick={onOpen}>{props.buttonText}</Button> */}
-        
         <Modal isOpen={props.isOpen} onClose={props.closeModal}>
         <ModalOverlay />
         <ModalContent>
@@ -43,7 +41,7 @@ export default function ContactModal(props: Props) {
       />
         {!isError ? (
         <FormHelperText>
-          Enter ur name so I know who's contacting me!
+          Enter ur name so I know who&apos;s contacting me!
         </FormHelperText>
       ) : (
         <FormErrorMessage>Name is required.</FormErrorMessage>
@@ -57,7 +55,7 @@ export default function ContactModal(props: Props) {
       />
       {!isError ? (
         <FormHelperText>
-          Enter the email so I know who's contacting me!
+          Enter the email so I know who&apos;s contacting me!
         </FormHelperText>
       ) : (
         <FormErrorMessage>Email is required.</FormErrorMessage>

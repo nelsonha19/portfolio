@@ -6,7 +6,7 @@ type Props = {};
 export default function EducationPanel({  }: Props) {
 	return (
         <>
-        <Heading>Education</Heading>
+        <Heading as={'h4'} fontSize={'x-large'} mt={16} id="education">Education</Heading>
 		<Flex justifyContent={'center'} alignItems="center" py={4} px={0}>
 			<Image
 				src="/macquarie-university.png"

@@ -31,5 +31,26 @@ export const workExperience: workExperienceType[] = [
 		endDate: '05 2022',
 		isCurrent: false,
 		logoPath: '/cba.svg'
+	},
+	{
+		role: 'Software Developer',
+		company: "Sydney Children's Hospital",
+		description: [
+			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
+			'Testing for 1st rotation'
+		],
+		startDate: '06 2020',
+		endDate: '12 2020',
+		isCurrent: false
+	},
+	{
+		role: 'Developer',
+		company: 'The Beauty Mart',
+		description: [
+			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
+			'Testing for 1st rotation'
+		],
+		startDate: '03 2021',
+		isCurrent: true
 	}
 ];
