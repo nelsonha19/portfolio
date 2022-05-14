@@ -12,15 +12,28 @@ export default function WorkExperience({ work }: Props) {
                 <>
                 <Image
                     src={work.logoPath}
-                    boxSize={{ base: 16, md: 32 }}           
+                    boxSize={{ base: 0, md: 28 }}           
                               alt="CommBank logo" 
                     display={'inline'}
                     verticalAlign={'middle'}
                 /><Divider orientation='vertical' mx={2} variant={'dashed'}/> </>
             )}
 
-            <Flex flexGrow={1} flexDirection="column" justifyContent={'center'} pl={!work.logoPath ? 8 : 0}>
-                <Heading>{work.company}</Heading>
+            <Flex flexGrow={1} flexDirection="column" justifyContent={'center'} pl={!work.logoPath ? 4 : 0}>
+                <Flex flexDir={{base: 'column', md: 'row'}} alignItems={'center'} justifyContent={{base: 'center', md: 'unset'}}>
+                        <Flex alignItems={'center'} justifyContent={'center'}>
+                            <Heading fontSize={'xl'}>{work.company}</Heading>
+                            {work.logoPath && (<Image
+                                src={work.logoPath}
+                                
+                                boxSize={{ base: 12, md: 0 }}           
+                                        alt="CommBank logo" 
+                                display={'inline'}
+                                verticalAlign={'middle'}
+                            />)}
+                        </Flex>
+                        {work.isPrimary && <Text as={'p'} mb={{base:1, md: 0}} textAlign={'right'}>&nbsp;(CURRENT)</Text>}
+                </Flex>
                 <Text>{work.role}</Text>
                 <Text>Started: {work.startDate}</Text>
                 <Text>Ended: {work.endDate}</Text>

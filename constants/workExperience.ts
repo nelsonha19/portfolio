@@ -7,6 +7,8 @@ export type workExperienceType = {
 	endDate?: string;
 	isCurrent: boolean;
 	logoPath?: string;
+	type: 'Employment' | 'PACE' | 'Freelance';
+	isPrimary?: boolean;
 };
 
 export const workExperience: workExperienceType[] = [
@@ -25,7 +27,9 @@ export const workExperience: workExperienceType[] = [
 		],
 		startDate: '05 2022',
 		isCurrent: true,
-		logoPath: '/cba.svg'
+		logoPath: '/cba.svg',
+		type: 'Employment',
+		isPrimary: true
 	},
 	{
 		id: 2,
@@ -38,7 +42,8 @@ export const workExperience: workExperienceType[] = [
 		startDate: '02 2021',
 		endDate: '05 2022',
 		isCurrent: false,
-		logoPath: '/cba.svg'
+		logoPath: '/cba.svg',
+		type: 'Employment'
 	},
 	{
 		id: 3,
@@ -50,7 +55,8 @@ export const workExperience: workExperienceType[] = [
 		],
 		startDate: '06 2020',
 		endDate: '12 2020',
-		isCurrent: false
+		isCurrent: false,
+		type: 'PACE'
 	},
 	{
 		id: 4,
@@ -61,6 +67,7 @@ export const workExperience: workExperienceType[] = [
 			'Testing for 1st rotation'
 		],
 		startDate: '03 2021',
-		isCurrent: true
+		isCurrent: true,
+		type: 'Freelance'
 	}
 ];

@@ -52,7 +52,7 @@ export default function Footer({  }: Props) {
 				))}
 			</Flex>
 			<Text fontSize={14} letterSpacing={'tight'}>
-				© 2022 Nelson Ha - Powered with ❤️
+				© {new Date().getFullYear()} Nelson Ha - Powered with ❤️
 			</Text>
 		</Flex>
 	);

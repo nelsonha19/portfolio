@@ -13,7 +13,7 @@ export default function Container(props: Props) {
 	return (
 		<Fade in={true}>
 			<chakra.div
-				mx={{ base: 2, md: 8 }}
+				mx={{ base: 0, md: 8 }}
 				display={'flex'}
 				flexDir={'column'}
 				h={'100vh'}
