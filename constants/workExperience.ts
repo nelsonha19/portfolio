@@ -3,8 +3,8 @@ export type workExperienceType = {
 	role: string;
 	company: string;
 	description?: string[];
-	startDate: string;
-	endDate?: string;
+	startDate: Date;
+	endDate?: Date;
 	isCurrent: boolean;
 	logoPath?: string;
 	type: 'Employment' | 'PACE' | 'Freelance';
@@ -25,7 +25,7 @@ export const workExperience: workExperienceType[] = [
 			'Working in an autonomous squad, responsible for delivering E2E',
 			'Working in an autonomous squad, responsible for delivering E2E'
 		],
-		startDate: '05 2022',
+		startDate: new Date(2022, 4, 1),
 		isCurrent: true,
 		logoPath: '/cba.svg',
 		type: 'Employment',
@@ -39,8 +39,8 @@ export const workExperience: workExperienceType[] = [
 			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
 			'Testing for 1st rotation'
 		],
-		startDate: '02 2021',
-		endDate: '05 2022',
+		startDate: new Date(2021, 1, 15),
+		endDate: new Date(2022, 4, 1),
 		isCurrent: false,
 		logoPath: '/cba.svg',
 		type: 'Employment'
@@ -53,8 +53,8 @@ export const workExperience: workExperienceType[] = [
 			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
 			'Testing for 1st rotation'
 		],
-		startDate: '06 2020',
-		endDate: '12 2020',
+		startDate: new Date(2020, 5, 1),
+		endDate: new Date(2020, 11, 1),
 		isCurrent: false,
 		type: 'PACE'
 	},
@@ -66,7 +66,7 @@ export const workExperience: workExperienceType[] = [
 			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
 			'Testing for 1st rotation'
 		],
-		startDate: '03 2021',
+		startDate: new Date(2021, 2, 1),
 		isCurrent: true,
 		type: 'Freelance'
 	}

@@ -3,6 +3,7 @@ import { workExperienceType } from '../../constants/workExperience';
 import { Box, Divider, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import ChakraNextLink from '../ChakraNextLink/ChakraNextLink';
+import { getShortMonthAndYearString } from '../../util/util';
 
 type Props = { work: workExperienceType };
 
@@ -12,9 +13,9 @@ export default function WorkExperienceCard({ work }: Props) {
 			<Flex direction={'row'} justifyContent={'space-between'} alignItems={'center'} height={'100px'} my={2}>
 				<Flex direction={'column'} justifyContent="center" alignItems={'center'} p={{ md: 5 }} pr={3}>
 					<Text fontSize={'xs'} as={'cite'} textAlign={'center'} fontStyle={'italic'}>
-						{work.startDate}
+						{getShortMonthAndYearString(work.startDate)}
 						<Text>to</Text>
-						{work.isCurrent ? 'Present' : work.endDate}
+						{work.isCurrent ? 'Present' : getShortMonthAndYearString(work.endDate)}
 					</Text>
 				</Flex>
 

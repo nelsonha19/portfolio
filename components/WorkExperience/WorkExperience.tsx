@@ -1,6 +1,7 @@
 import { Box, Flex, Heading, Image, List, ListItem, Text, Divider } from '@chakra-ui/react';
 import React from 'react';
 import { workExperienceType } from '../../constants/workExperience';
+import { getFullMonthAndYearString } from '../../util/util';
 
 type Props = { work: workExperienceType };
 
@@ -35,8 +36,8 @@ export default function WorkExperience({ work }: Props) {
                         {work.isPrimary && <Text as={'p'} mb={{base:1, md: 0}} textAlign={'right'}>&nbsp;(CURRENT)</Text>}
                 </Flex>
                 <Text>{work.role}</Text>
-                <Text>Started: {work.startDate}</Text>
-                <Text>Ended: {work.endDate}</Text>
+                <Text>Started: {getFullMonthAndYearString(work.startDate)}</Text>
+                <Text>Ended: {getFullMonthAndYearString(work.endDate)}</Text>
 
                 {work.description?.map((desc, index) => <List key={index}>
                     <ListItem>{desc}</ListItem>
