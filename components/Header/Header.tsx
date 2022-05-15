@@ -62,7 +62,7 @@ export default function Header(props: Props) {
 					<NavLink href="/" text="Home" />
 					<NavLink href="/about" text="About" />
 					<NavLink href="/experience" text="Experience" />
-					<NavLink href="/apps" text="Apps" />
+					{/* <NavLink href="/apps" text="Apps" /> */}
 				</chakra.div>
 				<chakra.div>
 					<Flex alignItems={'center'}>

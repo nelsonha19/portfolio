@@ -1,7 +1,10 @@
-import { Box, Flex, Heading, Image, List, ListItem, Text, Divider } from '@chakra-ui/react';
+import { Box, Flex, Heading, Image, List, ListItem, Text, Divider, ListIcon } from '@chakra-ui/react';
 import React from 'react';
 import { workExperienceType } from '../../constants/workExperience';
 import { getFullMonthAndYearString } from '../../util/util';
+import TechTags from '../TechTags/TechTags';
+import WorkTags from '../WorkTags/WorkTags';
+import { ChevronRightIcon } from '@chakra-ui/icons';
 
 type Props = { work: workExperienceType };
 
@@ -33,15 +36,38 @@ export default function WorkExperience({ work }: Props) {
                                 verticalAlign={'middle'}
                             />)}
                         </Flex>
-                        {work.isPrimary && <Text as={'p'} mb={{base:1, md: 0}} textAlign={'right'}>&nbsp;(CURRENT)</Text>}
                 </Flex>
-                <Text>{work.role}</Text>
-                <Text>Started: {getFullMonthAndYearString(work.startDate)}</Text>
-                <Text>Ended: {getFullMonthAndYearString(work.endDate)}</Text>
 
-                {work.description?.map((desc, index) => <List key={index}>
-                    <ListItem>{desc}</ListItem>
-                </List>)}
+                <Text as={'em'}>{work.role}</Text>
+
+                <Divider mb={2}/>
+
+                {work.isPrimary && <Text as={'samp'} fontWeight={'extrabold'} fontSize={'xs'} color={'green.500'}>
+                    CURRENT EMPLOYMENT
+                </Text>}
+                <Text as={'samp'} color={'gray.600'} fontSize={'xs'}>Started: {getFullMonthAndYearString(work.startDate)}</Text>
+                {work.endDate && <Text as={'samp'} fontSize={'xs'} color={'gray.600'}>
+                    Ended: {getFullMonthAndYearString(work.endDate)}
+                </Text>}
+
+                <Divider my={2} mb={4}/>
+
+                {work.description?.map((description, index) => <>
+                    <List fontSize={'sm'} key={index}>
+                        <ListItem>{description.main}</ListItem>
+                        {description.sub?.map(sub => {
+                            return <ListItem key={sub}>
+                                <ListIcon as={ChevronRightIcon}/>
+                                {sub}
+                            </ListItem>
+                        })}
+                    </List>
+                </>)}
+
+                <Divider my={3} mt={5}/>
+
+                {/* TAGS */}
+                <WorkTags tags={['React', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative', 'reactNative']} />
             </Flex>
         </Flex>
     );

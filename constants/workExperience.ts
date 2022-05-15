@@ -1,8 +1,13 @@
+type Description = {
+	main: string;
+	sub?: string[];
+};
+
 export type workExperienceType = {
 	id: number;
 	role: string;
 	company: string;
-	description?: string[];
+	description?: Description[];
 	startDate: Date;
 	endDate?: Date;
 	isCurrent: boolean;
@@ -17,13 +22,13 @@ export const workExperience: workExperienceType[] = [
 		role: 'Software Engineer',
 		company: 'Commonwealth Bank',
 		description: [
-			'Doing full stack development in the homebuying domain',
-			'Working in an autonomous squad, responsible for delivering E2E',
-			'Working in an autonomous squad, responsible for delivering E2E',
-			'Working in an autonomous squad, responsible for delivering E2E',
-			'Working in an autonomous squad, responsible for delivering E2E',
-			'Working in an autonomous squad, responsible for delivering E2E',
-			'Working in an autonomous squad, responsible for delivering E2E'
+			{
+				main: 'working in the home buying domain'
+			},
+			{
+				main: 'end to end stuff',
+				sub: [ 'doign testing and dev work', 'sharing scrum master' ]
+			}
 		],
 		startDate: new Date(2022, 4, 1),
 		isCurrent: true,
@@ -36,8 +41,13 @@ export const workExperience: workExperienceType[] = [
 		role: 'Technology Graduate',
 		company: 'Commonwealth Bank',
 		description: [
-			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
-			'Testing for 1st rotation'
+			{
+				main: 'Working in the home buying domain'
+			},
+			{
+				main: 'End to end stuff',
+				sub: [ 'doign testing and dev work', 'sharing scrum master' ]
+			}
 		],
 		startDate: new Date(2021, 1, 15),
 		endDate: new Date(2022, 4, 1),
@@ -50,8 +60,13 @@ export const workExperience: workExperienceType[] = [
 		role: 'Software Developer',
 		company: "Sydney Children's Hospital",
 		description: [
-			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
-			'Testing for 1st rotation'
+			{
+				main: 'working in the home buying domain'
+			},
+			{
+				main: 'end to end stuff',
+				sub: [ 'doign testing and dev work', 'sharing scrum master' ]
+			}
 		],
 		startDate: new Date(2020, 5, 1),
 		endDate: new Date(2020, 11, 1),
@@ -63,8 +78,13 @@ export const workExperience: workExperienceType[] = [
 		role: 'Developer',
 		company: 'The Beauty Mart',
 		description: [
-			'Completed two rotations in the Digital Operations & Technology business unit, 1 in the CommBank app team and 2 in NetBank web chapter',
-			'Testing for 1st rotation'
+			{
+				main: 'working in the home buying domain'
+			},
+			{
+				main: 'end to end stuff',
+				sub: [ 'doign testing and dev work', 'sharing scrum master' ]
+			}
 		],
 		startDate: new Date(2021, 2, 1),
 		isCurrent: true,

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { techArrayType } from '../../constants/technologyConstants';
 import styles from './TechTags.module.scss';
 
+
 type Props = {
 	techArray: techArrayType[];
 	hoveredTech?: string;
