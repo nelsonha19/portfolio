@@ -2,16 +2,12 @@ import {
 	SimpleGrid,
 	Icon,
 	Tooltip,
-	Box,
-	Slide,
 	Image,
-	Fade,
-	Collapse,
 	Flex,
 	useColorModeValue
 } from '@chakra-ui/react';
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
 import { techArrayType } from '../../constants/technologyConstants';
 import styles from './Technologies.Grid.module.scss';
 

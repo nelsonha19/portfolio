@@ -1,4 +1,4 @@
-import { ExternalLinkIcon,  ArrowForwardIcon } from '@chakra-ui/icons';
+import { ExternalLinkIcon,  ArrowForwardIcon, DownloadIcon } from '@chakra-ui/icons';
 import {
 	Flex,
 	Heading,
@@ -12,7 +12,11 @@ import {
 	AccordionItem,
 	AccordionButton,
 	AccordionPanel,
-	AccordionIcon
+	AccordionIcon,
+	Tag,
+	TagLabel,
+	TagRightIcon,
+	Tooltip
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Card from '../components/Card/Card';
@@ -25,7 +29,6 @@ import {
 	ABOUT_PAGE_FRAMEWORKS,
 	ABOUT_PAGE_LIBRARIES,
 	ABOUT_PAGE_TOOLS,
-	ALL_TECH_ARRAY,
 	FULL_ARRAY
 } from '../constants/technologyConstants';
 import ContactModal from '../components/ContactModal/ContactModal';
@@ -36,10 +39,9 @@ import { Divider } from '@chakra-ui/react';
 import ChakraNextLink from '../components/ChakraNextLink/ChakraNextLink';
 import ChakraNextLinkButton from '../components/ChakraNextLink/ChakraNextLinkButton';
 import EducationPanel from '../components/EducationPanel/EducationPanel';
+import { techArrayType } from '../constants/technologyConstants';
 
-type Props = {};
-
-export default function About({  }: Props) {
+export default function About() {
 	const [ contactModal, setContactModal ] = useState(false);
 	const [ hoveredTech, setHoveredTech ] = useState('');
 
@@ -59,7 +61,7 @@ export default function About({  }: Props) {
 		})
 	}
 
-	const gridWithTitle = (title: string, arrayOfTech: any) => {
+	const gridWithTitle = (title: string, arrayOfTech: techArrayType[]) => {
 		return (
 			<Flex flexDir={'column'} align={'center'} justifyContent={'space-between'}>
 				<TechnologiesGrid
@@ -107,17 +109,19 @@ export default function About({  }: Props) {
 						</li>
 					</ul>
 
-					<Flex
-						flexDirection={'column'}
-						w={'100%'}
-						alignItems="center"
-						justifyContent={'center'}
-						h={{ base: '100px', md: '200px' }}
-					>
-						<Heading size={'md'} my={1}>
-							Download Resume
-						</Heading>
-					</Flex>
+					<Tag size={'md'} variant={'subtle'} colorScheme={'telegram'} mt={4} cursor={'default'}>
+						<TagLabel>Resume</TagLabel>
+						<ChakraNextLink href="">
+							<Tooltip label="Open in new tab">
+									<TagRightIcon as={ExternalLinkIcon} boxSize={5} />
+							</Tooltip>
+						</ChakraNextLink>
+						<ChakraNextLink href="">
+							<Tooltip label="Download">
+								<TagRightIcon as={DownloadIcon} boxSize={5} />
+							</Tooltip>
+						</ChakraNextLink>
+					</Tag>
 				</Flex>
 			</Flex>
 			<Divider mb={10}/>
