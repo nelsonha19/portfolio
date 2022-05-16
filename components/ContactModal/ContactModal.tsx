@@ -3,8 +3,8 @@ import {
   Divider,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
+  Heading,
   Input,
   Modal,
   ModalBody,
@@ -29,6 +29,9 @@ export default function ContactModal(props: Props) {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+  const [nameError, setNameErrorMessage] = useState('')
+  const [emailError, setEmailErrorMessage] = useState('')
+  const [messageError, setMessageErrorMessage] = useState('')
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setName(e.target.value)
@@ -37,7 +40,28 @@ export default function ContactModal(props: Props) {
   const handleMessageChange = (e: React.ChangeEvent<HTMLTextAreaElement>) =>
     setMessage(e.target.value)
 
-  const isError = name === ''
+  const submitFormHandler = (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    if (name.length <= 1) {
+      setNameErrorMessage('False name')
+    } else {
+      setNameErrorMessage('')
+    }
+    if (email.length <= 1) {
+      setEmailErrorMessage('Fake email')
+    } else {
+      setEmailErrorMessage('')
+    }
+    if (message.length <= 1) {
+      setMessageErrorMessage('Too short')
+    } else {
+      setMessageErrorMessage('')
+    }
+
+    setLoading(false)
+  }
 
   return (
     <>
@@ -48,51 +72,50 @@ export default function ContactModal(props: Props) {
           <ModalCloseButton />
           {!loading ? (
             <ModalBody>
-              <Text>Send me an email here: nelsonha19@gmail.com</Text>
-              <Divider />
-              <Text>Or leave me a message :)</Text>
-              <FormControl isInvalid={isError}>
+              <Text>You can send me an email: nelsonha19@gmail.com</Text>
+
+              <Divider my={10} />
+
+              <Text>OR</Text>
+              <Heading as={'h2'} mt={10} fontSize={'lg'}>
+                Leave a message
+              </Heading>
+              <FormControl isRequired mt={4} isInvalid={nameError}>
                 <FormLabel htmlFor="email">Name</FormLabel>
                 <Input
                   id="name"
                   type="name"
                   value={name}
-                  placeholder={'name'}
+                  placeholder={'John Smith'}
                   onChange={handleNameChange}
                 />
-                {!isError ? (
-                  <FormHelperText>
-                    Enter ur name so I know who&apos;s contacting me!
-                  </FormHelperText>
-                ) : (
-                  <FormErrorMessage>Name is required.</FormErrorMessage>
-                )}
+                {nameError && <FormErrorMessage>{nameError}</FormErrorMessage>}
+              </FormControl>
+
+              <FormControl isRequired isInvalid={emailError}>
                 <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
                   id="email"
                   type="email"
                   value={email}
+                  placeholder="johnsmith@email.com"
                   onChange={handleEmailChange}
                 />
-                {!isError ? (
-                  <FormHelperText>
-                    Enter the email so I know who&apos;s contacting me!
-                  </FormHelperText>
-                ) : (
-                  <FormErrorMessage>Email is required.</FormErrorMessage>
+                {emailError && (
+                  <FormErrorMessage>{emailError}</FormErrorMessage>
                 )}
+              </FormControl>
+
+              <FormControl isRequired isInvalid={messageError}>
                 <FormLabel htmlFor="message">Message</FormLabel>
                 <Textarea
                   id="message"
                   value={message}
+                  placeholder="..."
                   onChange={handleMessageChange}
                 />
-                {!isError ? (
-                  <FormHelperText>What do you want to say?</FormHelperText>
-                ) : (
-                  <FormErrorMessage>
-                    Leave me something at least!
-                  </FormErrorMessage>
+                {messageError && (
+                  <FormErrorMessage>{messageError}</FormErrorMessage>
                 )}
               </FormControl>
             </ModalBody>
@@ -103,14 +126,18 @@ export default function ContactModal(props: Props) {
           )}
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={props.closeModal}>
+            <Button
+              colorScheme="blue"
+              variant={'ghost'}
+              mr={3}
+              onClick={props.closeModal}
+            >
               Close
             </Button>
             <Button
-              variant="ghost"
-              onClick={() => {
-                setLoading(!loading)
-              }}
+              onClick={submitFormHandler}
+              // disabled
+              colorScheme={'telegram'}
             >
               Send
             </Button>
