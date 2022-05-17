@@ -14,6 +14,7 @@ import { SunIcon, MoonIcon, CopyIcon } from '@chakra-ui/icons'
 import React from 'react'
 import NavLink from '../NavLink/NavLink'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
+import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 
 type Props = {
   onToggle: () => void

@@ -13,6 +13,7 @@ import { workExperienceType } from '../../constants/workExperience'
 import { getFullMonthAndYearString } from '../../util/util'
 import WorkTags from '../WorkTags/WorkTags'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { chakra } from '@chakra-ui/react'
 
 type Props = { work: workExperienceType }
 
@@ -65,30 +66,43 @@ export default function WorkExperience({ work }: Props) {
           </Flex>
         </Flex>
 
-        <Text as={'em'}>{work.role}</Text>
+        <Text
+          as={'em'}
+          textAlign={{ base: 'center', md: 'left' }}
+          mr={6}
+          mt={{ base: -2, md: 0 }}
+        >
+          {work.role}
+        </Text>
 
-        <Divider mb={2} />
+        <Divider my={4} />
 
-        {work.isPrimary && (
-          <Text
-            as={'samp'}
-            fontWeight={'extrabold'}
-            fontSize={'xs'}
-            color={'green.500'}
-          >
-            CURRENT EMPLOYMENT
-          </Text>
-        )}
-        <Text as={'samp'} color={'gray.600'} fontSize={'xs'}>
-          Started: {getFullMonthAndYearString(work.startDate)}
+        <Text fontSize={'xs'}>
+          <chakra.span fontWeight={'bold'}>Experience type: </chakra.span>
+          {work.type}
+          {work.isPrimary && (
+            <chakra.span
+              // as={'samp'}
+              fontWeight={'extrabold'}
+              color={'green.500'}
+              fontSize={'xs'}
+            >
+              {'     '}(ONGOING)
+            </chakra.span>
+          )}
+        </Text>
+        <Text fontSize={'xs'}>
+          <chakra.span fontWeight={'bold'}>Started: </chakra.span>
+          {getFullMonthAndYearString(work.startDate)}
         </Text>
         {work.endDate && (
-          <Text as={'samp'} fontSize={'xs'} color={'gray.600'}>
-            Ended: {getFullMonthAndYearString(work.endDate)}
+          <Text fontSize={'xs'}>
+            <chakra.span fontWeight={'bold'}>Ended: </chakra.span>
+            {getFullMonthAndYearString(work.endDate)}
           </Text>
         )}
 
-        <Divider my={2} mb={4} />
+        <Divider my={4} />
 
         {work.description?.map((description, index) => (
           <>

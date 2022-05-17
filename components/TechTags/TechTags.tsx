@@ -18,6 +18,7 @@ export default function TechTags({
   return (
     <>
       {techArray.map((tech) => {
+        console.log(tech.colorScheme)
         return (
           <Tag
             key={tech.name}
@@ -30,6 +31,8 @@ export default function TechTags({
             )}
             m={1}
             fontSize={{ base: 'xs', md: 's' }}
+            colorScheme={tech.colorScheme}
+            variant={'subtle'}
           >
             {tech.tooltipText}
           </Tag>

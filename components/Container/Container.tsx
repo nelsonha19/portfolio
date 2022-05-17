@@ -1,4 +1,5 @@
 import { Fade, Flex, useDisclosure, chakra } from '@chakra-ui/react'
+import { SkipNavContent } from '@chakra-ui/skip-nav'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
