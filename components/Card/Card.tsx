@@ -6,7 +6,7 @@ type CardProps = {
   children?: React.ReactChild | React.ReactChild[]
 }
 
-const Card: React.FC<CardProps> = ({ heading, children, ...props }) => {
+function Card({ heading, children, ...props }: CardProps) {
   return (
     <Flex
       {...props}

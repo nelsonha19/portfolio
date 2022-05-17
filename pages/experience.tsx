@@ -6,7 +6,7 @@ import { workExperience } from '../constants/workExperience'
 
 export default function Experience() {
   return (
-    <Container>
+    <Container title="Experience - Nelson Ha">
       <Flex flexDir={'column'} mt={{ base: 2, md: 8 }}>
         <Flex flexDir={{ base: 'column-reverse', md: 'row' }}>
           <Flex flexDir={'column'} justifyContent={'center'} px={4}>

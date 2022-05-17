@@ -90,7 +90,7 @@ export default function About() {
   }
 
   return (
-    <Container>
+    <Container title="About Me - Nelson Ha">
       <Flex
         mt={10}
         flexDir={{ base: 'column', md: 'row' }}
@@ -159,8 +159,8 @@ export default function About() {
         align={{ base: 'center', md: 'flex-start' }}
       >
         {/* Personal links */}
-        <Card heading="Links" mb={{ base: 8, md: 0 }}>
-          <UnorderedList>
+        <Card heading="Links">
+          <UnorderedList mb={{ base: 8, md: 0 }}>
             {linksConstants.map((link) => {
               return (
                 <ListItem key={link.name} py={1}>

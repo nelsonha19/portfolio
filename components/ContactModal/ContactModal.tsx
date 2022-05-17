@@ -80,7 +80,7 @@ export default function ContactModal(props: Props) {
               <Heading as={'h2'} mt={10} fontSize={'lg'}>
                 Leave a message
               </Heading>
-              <FormControl isRequired mt={4} isInvalid={nameError}>
+              <FormControl isRequired mt={4} isInvalid={nameError == ''}>
                 <FormLabel htmlFor="email">Name</FormLabel>
                 <Input
                   id="name"
@@ -92,7 +92,7 @@ export default function ContactModal(props: Props) {
                 {nameError && <FormErrorMessage>{nameError}</FormErrorMessage>}
               </FormControl>
 
-              <FormControl isRequired isInvalid={emailError}>
+              <FormControl isRequired isInvalid={emailError == ''}>
                 <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
                   id="email"
@@ -106,7 +106,7 @@ export default function ContactModal(props: Props) {
                 )}
               </FormControl>
 
-              <FormControl isRequired isInvalid={messageError}>
+              <FormControl isRequired isInvalid={messageError == ''}>
                 <FormLabel htmlFor="message">Message</FormLabel>
                 <Textarea
                   id="message"
