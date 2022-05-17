@@ -68,6 +68,7 @@ export default function About() {
   const gridWithTitle = (title: string, arrayOfTech: techArrayType[]) => {
     return (
       <Flex
+        display={{ base: 'none', md: 'flex' }}
         flexDir={'column'}
         align={'center'}
         justifyContent={'space-between'}
@@ -86,6 +87,34 @@ export default function About() {
         </Heading>
         <Divider mt={1} display={{ base: 'none', md: 'unset' }} />
       </Flex>
+    )
+  }
+  const techAccordionItemMobile = (
+    title: string,
+    arrayOfTech: techArrayType[]
+  ) => {
+    return (
+      <AccordionItem display={{ md: 'none' }}>
+        <Flex flexDir={'column'} px={{ md: 0 }}>
+          <AccordionButton px={0}>
+            <Heading as={'h4'} size={'md'} flex={1} textAlign={'left'}>
+              {title}
+            </Heading>
+            <AccordionIcon />
+          </AccordionButton>
+          <AccordionPanel px={0}>
+            <TechnologiesGrid
+              usesSvg
+              columns={{ base: 5, sm: 6, md: 5 }}
+              iconArray={arrayOfTech}
+              iconSize={16}
+              gridGap={2}
+              hoverHandler={hoverHandler}
+              hoveredTech={hoveredTech}
+            />
+          </AccordionPanel>
+        </Flex>
+      </AccordionItem>
     )
   }
 
@@ -202,12 +231,12 @@ export default function About() {
       </Flex>
       <Divider mb={6} />
 
-      <Flex flexDirection={'column'} alignItems={'center'} py={10}>
+      <Flex flexDirection={'column'} alignItems={'center'} my={6}>
         <Heading as={'h3'} fontSize={'x-large'} id="tech-matrix">
           My frequently used technologies:
         </Heading>
         <SimpleGrid
-          mt={10}
+          mt={{ base: 0, md: 8 }}
           columns={{ base: 1, md: 2 }}
           spacingX={1}
           spacingY={10}
@@ -220,7 +249,23 @@ export default function About() {
         </SimpleGrid>
       </Flex>
 
-      <Accordion allowToggle defaultIndex={[0]}>
+      <Accordion allowToggle allowMultiple defaultIndex={[0, 1, 2, 3]}>
+        <AccordionItem>
+          {techAccordionItemMobile(
+            'Programming Languages',
+            ABOUT_PAGE_LANGUAGES
+          )}
+          {techAccordionItemMobile(
+            'Frameworks & Libraries',
+            ABOUT_PAGE_FRAMEWORKS
+          )}
+          {techAccordionItemMobile('Tools', ABOUT_PAGE_TOOLS)}
+          {techAccordionItemMobile(
+            'Other  & Miscellanious',
+            ABOUT_PAGE_LIBRARIES
+          )}
+        </AccordionItem>
+
         <AccordionItem>
           <Flex flexDir={'column'} px={{ md: 0 }}>
             <AccordionButton px={0}>

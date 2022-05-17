@@ -90,7 +90,6 @@ export default function Header(props: Props) {
                   <TagRightIcon
                     as={EmailIcon}
                     boxSize={5}
-                    onClick={copyEmailHandler}
                     _hover={{ opacity: 0.5 }}
                     cursor={'pointer'}
                   />
