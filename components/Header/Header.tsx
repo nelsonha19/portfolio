@@ -10,11 +10,12 @@ import {
   TagLabel,
   TagRightIcon,
 } from '@chakra-ui/react'
-import { SunIcon, MoonIcon, CopyIcon } from '@chakra-ui/icons'
+import { SunIcon, MoonIcon, CopyIcon, EmailIcon } from '@chakra-ui/icons'
 import React from 'react'
 import NavLink from '../NavLink/NavLink'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
 import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
+import ChakraNextLink from '../ChakraNextLink/ChakraNextLink'
 
 type Props = {
   onToggle: () => void
@@ -72,6 +73,7 @@ export default function Header(props: Props) {
               colorScheme={'gray'}
               py={2}
               cursor={'default'}
+              mr={2}
             >
               <TagLabel id={'email'}>nelsonha19@gmail.com</TagLabel>
               <Tooltip label="Copy to clipboard">
@@ -83,6 +85,17 @@ export default function Header(props: Props) {
                   cursor={'pointer'}
                 />
               </Tooltip>
+              <ChakraNextLink href="mailto:nelsonha19@gmail.com">
+                <Tooltip label="Mail">
+                  <TagRightIcon
+                    as={EmailIcon}
+                    boxSize={5}
+                    onClick={copyEmailHandler}
+                    _hover={{ opacity: 0.5 }}
+                    cursor={'pointer'}
+                  />
+                </Tooltip>
+              </ChakraNextLink>
             </Tag>
 
             <Tooltip label={`Toggle ${themeColor} mode`} openDelay={300}>

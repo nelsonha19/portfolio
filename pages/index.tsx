@@ -98,12 +98,13 @@ const Home: NextPage = () => {
             iconArray={HOME_PAGE_TECH_STACKS}
             iconSize={10}
             gridGap={'5'}
+            columns={{ base: 4, md: 6 }}
           />
           <Button
             variant={'link'}
             color="burlywood"
             rightIcon={<ArrowForwardIcon />}
-            mt={3}
+            mt={6}
           >
             <ChakraNextLink href="/about">
               {' '}
