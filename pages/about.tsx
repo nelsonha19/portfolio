@@ -22,7 +22,7 @@ import {
   TagRightIcon,
   Tooltip,
 } from '@chakra-ui/react'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import Card from '../components/Card/Card'
 import Container from '../components/Container/Container'
 import TechnologiesGrid from '../components/TechnologiesGrid/TechnologiesGrid'
@@ -82,7 +82,7 @@ export default function About() {
           hoverHandler={hoverHandler}
           hoveredTech={hoveredTech}
         />
-        <Heading size={'sm'} fontWeight={'medium'} mt={3}>
+        <Heading size={'sm'} fontWeight={'medium'} my={3}>
           {title}
         </Heading>
         <Divider mt={1} display={{ base: 'none', md: 'unset' }} />
@@ -121,7 +121,7 @@ export default function About() {
   return (
     <Container title="About Me - Nelson Ha">
       <Flex
-        mt={10}
+        my={10}
         flexDir={{ base: 'column', md: 'row' }}
         alignItems={{ base: 'center', md: 'flex-start' }}
       >
@@ -178,7 +178,6 @@ export default function About() {
           </Tag>
         </Flex>
       </Flex>
-      <Divider mb={10} />
 
       {/* The two cards */}
       <Flex
@@ -242,7 +241,14 @@ export default function About() {
           spacingY={10}
           w={'100%'}
         >
-          {gridWithTitle('Programming Languages', ABOUT_PAGE_LANGUAGES)}
+          {/* {gridWithTitle(
+            'Programming Languages',
+            useMemo(() => ABOUT_PAGE_LANGUAGES, [])
+          )} */}
+          {useMemo(
+            () => gridWithTitle('Programming Languages', ABOUT_PAGE_LANGUAGES),
+            []
+          )}
           {gridWithTitle('Frameworks & Libraries', ABOUT_PAGE_FRAMEWORKS)}
           {gridWithTitle('Tools', ABOUT_PAGE_TOOLS)}
           {gridWithTitle('Other  & Miscellanious', ABOUT_PAGE_LIBRARIES)}
@@ -270,7 +276,7 @@ export default function About() {
           <Flex flexDir={'column'} px={{ md: 0 }}>
             <AccordionButton px={0}>
               <Heading as={'h4'} size={'md'} flex={1} textAlign={'left'}>
-                Tech tags
+                Tags
               </Heading>
               <AccordionIcon />
             </AccordionButton>

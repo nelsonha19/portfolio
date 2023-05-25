@@ -24,9 +24,9 @@ export default function WorkExperience({ work }: Props) {
       borderRadius={'lg'}
       justifyContent={'space-between'}
       alignItems={'center'}
-      my={2}
+      my={5}
       py={6}
-      boxShadow={'md'}
+      boxShadow={'sm'}
     >
       {work.logoPath && (
         <>

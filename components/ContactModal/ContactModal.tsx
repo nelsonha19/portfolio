@@ -74,13 +74,18 @@ export default function ContactModal(props: Props) {
             <ModalBody>
               <Text>You can send me an email: nelsonha19@gmail.com</Text>
 
-              <Divider my={10} />
+              <Divider my={5} />
 
-              <Text>OR</Text>
-              <Heading as={'h2'} mt={10} fontSize={'lg'}>
-                Leave a message
+              {/* TODO: Configure AWS Lambda to send email */}
+              <Heading as={'h2'} mt={5} fontSize={'lg'}>
+                Contact form
               </Heading>
-              <FormControl isRequired mt={4} isInvalid={nameError == ''}>
+              <FormControl
+                isDisabled={true}
+                isRequired
+                mt={3}
+                isInvalid={nameError == ''}
+              >
                 <FormLabel htmlFor="email">Name</FormLabel>
                 <Input
                   id="name"
@@ -92,7 +97,11 @@ export default function ContactModal(props: Props) {
                 {nameError && <FormErrorMessage>{nameError}</FormErrorMessage>}
               </FormControl>
 
-              <FormControl isRequired isInvalid={emailError == ''}>
+              <FormControl
+                isDisabled={true}
+                isRequired
+                isInvalid={emailError == ''}
+              >
                 <FormLabel htmlFor="email">Email</FormLabel>
                 <Input
                   id="email"
@@ -106,7 +115,11 @@ export default function ContactModal(props: Props) {
                 )}
               </FormControl>
 
-              <FormControl isRequired isInvalid={messageError == ''}>
+              <FormControl
+                isDisabled={true}
+                isRequired
+                isInvalid={messageError == ''}
+              >
                 <FormLabel htmlFor="message">Message</FormLabel>
                 <Textarea
                   id="message"
@@ -118,6 +131,10 @@ export default function ContactModal(props: Props) {
                   <FormErrorMessage>{messageError}</FormErrorMessage>
                 )}
               </FormControl>
+
+              <Text fontSize={'sm'} as={'i'} mt={2}>
+                This contact form is a work in progress...
+              </Text>
             </ModalBody>
           ) : (
             <ModalBody>
@@ -134,13 +151,13 @@ export default function ContactModal(props: Props) {
             >
               Close
             </Button>
-            <Button
+            {/* <Button
               onClick={submitFormHandler}
               // disabled
               colorScheme={'telegram'}
             >
               Send
-            </Button>
+            </Button> */}
           </ModalFooter>
         </ModalContent>
       </Modal>

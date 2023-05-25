@@ -32,7 +32,7 @@ const Home: NextPage = () => {
           >
             <Image
               // className={isDark && 'grayscale'}
-              src="/uglyme.png"
+              src="/portrait.png"
               boxSize={{ base: '120px', md: '160px' }}
               alt="te"
               borderRadius={'full'}
@@ -74,14 +74,17 @@ const Home: NextPage = () => {
             </ChakraNextLinkButton>
           </Text>
           <Flex mt={12}>
-            <Button variant={'ghost'} onClick={() => setContactModal(true)}>
-              Contact Me
+            <Button
+              variant={'solid'}
+              colorScheme={'whatsapp'}
+              onClick={() => setContactModal(true)}
+            >
+              Contact Me 💬
             </Button>
             <ContactModal
               isOpen={contactModal}
               closeModal={() => setContactModal(false)}
             />
-            <Button variant={'solid'}>Whatsapp phone?</Button>
           </Flex>
         </Flex>
         <Flex
@@ -102,7 +105,8 @@ const Home: NextPage = () => {
           />
           <Button
             variant={'link'}
-            color="burlywood"
+            // colorScheme={'brow'}
+            color="brown"
             rightIcon={<ArrowForwardIcon />}
             mt={6}
           >

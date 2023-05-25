@@ -14,7 +14,6 @@ import { SunIcon, MoonIcon, CopyIcon, EmailIcon } from '@chakra-ui/icons'
 import React from 'react'
 import NavLink from '../NavLink/NavLink'
 import HamburgerMenu from '../HamburgerMenu/HamburgerMenu'
-import { SkipNavContent, SkipNavLink } from '@chakra-ui/skip-nav'
 import ChakraNextLink from '../ChakraNextLink/ChakraNextLink'
 
 type Props = {
@@ -65,6 +64,7 @@ export default function Header(props: Props) {
           <NavLink href="/experience" text="Experience" />
           {/* <NavLink href="/apps" text="Apps" /> */}
         </chakra.div>
+
         <chakra.div>
           <Flex alignItems={'center'}>
             <Tag

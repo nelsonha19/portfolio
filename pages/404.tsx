@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Heading } from '@chakra-ui/react'
 import { useRouter } from 'next/router'
 import React from 'react'
@@ -10,10 +11,11 @@ export default function Custom404() {
 
   return (
     <Container>
-      <Heading>There is nothing here yet 🙁</Heading>
+      <Heading>404 - This page doesn't exist 🙁</Heading>
       <ChakraNextLinkButton
         href={''}
         leftIcon={<ArrowBackIcon />}
+        my={4}
         onClick={() => {
           router.back()
         }}
