@@ -18,7 +18,6 @@ export default function TechTags({
   return (
     <>
       {techArray.map((tech) => {
-        console.log(tech.colorScheme)
         return (
           <Tag
             key={tech.name}
