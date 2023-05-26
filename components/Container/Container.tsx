@@ -1,9 +1,10 @@
-import { Fade, Flex, useDisclosure, chakra } from '@chakra-ui/react'
+import { Fade, Flex, useDisclosure, chakra, SlideFade } from '@chakra-ui/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
+import SlideFadeContainer from './SlideFadeContainer'
 
 type Props = {
   children: React.ReactNode
@@ -21,7 +22,7 @@ export default function Container(props: Props) {
   }
 
   return (
-    <Fade in={true}>
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -40,12 +41,12 @@ export default function Container(props: Props) {
         <Fade in={!isOpen}>
           <Flex justify={'center'}>
             <chakra.div w="100%" maxW={'4xl'}>
-              {children}
+              <SlideFadeContainer>{children}</SlideFadeContainer>
             </chakra.div>
           </Flex>
         </Fade>
         <Footer />
       </chakra.div>
-    </Fade>
+    </>
   )
 }

@@ -36,8 +36,8 @@ export default function EducationPanel() {
             Bachelor of Commerce with a Bachelor of Science
           </Text>
           <Text fontSize={'sm'}>Majors in Finance and Software Technology</Text>
-          <Divider mt={1} mb={4} />
-          <Text fontSize={'sm'}>Weighted Average Mark: 76</Text>
+          <Divider mt={2} mb={3} />
+          {/* <Text fontSize={'sm'}>Weighted Average Mark: 76</Text> */}
           <Text as={'sub'} fontStyle={'italic'} my={2}>
             Academic transcript available on request
           </Text>
