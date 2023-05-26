@@ -43,7 +43,7 @@ export default function TechnologiesGrid({
             key={icon.name}
             label={icon.tooltipText}
             placement="auto-end"
-            openDelay={1000}
+            // openDelay={1000}
           >
             <Flex
               _hover={{ opacity: 1 }}

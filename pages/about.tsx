@@ -21,6 +21,10 @@ import {
   TagLabel,
   TagRightIcon,
   Tooltip,
+  Switch,
+  FormControl,
+  FormLabel,
+  Fade,
 } from '@chakra-ui/react'
 import React, { useMemo, useState } from 'react'
 import Card from '../components/Card/Card'
@@ -34,6 +38,7 @@ import {
   ABOUT_PAGE_LIBRARIES,
   ABOUT_PAGE_TOOLS,
   FULL_ARRAY,
+  ABOUT_PAGE_CLOUD,
 } from '../constants/technologyConstants'
 import ContactModal from '../components/ContactModal/ContactModal'
 import TechTags from '../components/TechTags/TechTags'
@@ -44,10 +49,12 @@ import ChakraNextLink from '../components/ChakraNextLink/ChakraNextLink'
 import ChakraNextLinkButton from '../components/ChakraNextLink/ChakraNextLinkButton'
 import EducationPanel from '../components/EducationPanel/EducationPanel'
 import { techArrayType } from '../constants/technologyConstants'
+import TechList from '../components/TechList/TechList'
 
 export default function About() {
   const [contactModal, setContactModal] = useState(false)
   const [hoveredTech, setHoveredTech] = useState('')
+  const [isListView, setIsListView] = useState(false)
 
   const meetingModalHandler = () => {
     setContactModal(!contactModal)
@@ -73,6 +80,9 @@ export default function About() {
         align={'center'}
         justifyContent={'space-between'}
       >
+        <Heading size={'sm'} fontWeight={'medium'} my={3}>
+          {title}
+        </Heading>
         <TechnologiesGrid
           usesSvg
           columns={{ base: 5, sm: 6, md: 5 }}
@@ -82,9 +92,6 @@ export default function About() {
           hoverHandler={hoverHandler}
           hoveredTech={hoveredTech}
         />
-        <Heading size={'sm'} fontWeight={'medium'} my={3}>
-          {title}
-        </Heading>
         <Divider mt={1} display={{ base: 'none', md: 'unset' }} />
       </Flex>
     )
@@ -144,38 +151,22 @@ export default function About() {
             Nelson Ha - Software Engineer
           </Heading>
           <Text textAlign={{ base: 'center', md: 'start' }}>
-            I am a software engineer based in Sydney, Australia. I have the
-            capability to do Full Stack Engineering, see below for my full list
-            of technologies that I&apos;ve worked with. My biggest strength is
-            front end development 😉
+            I am a software engineer based in Sydney, Australia, with a passion
+            for full-stack development. With a comprehensive skill set and a
+            broad range of experience, I excel in delivering end-to-end
+            engineering solutions. From crafting intuitive user interfaces to
+            building robust backend systems, I thrive in every aspect of
+            software engineering. My dedication to producing high-quality code,
+            coupled with my familiarity with various technologies, allows me to
+            create seamless and efficient solutions for complex problems.
           </Text>
 
-          <Text>Quick links</Text>
-          <ul>
-            <li>Technology array</li>
-            <li onClick={() => scrollToId('experience')}>Experience</li>
-            <li onClick={() => scrollToId('education')}>Education</li>
-          </ul>
-
-          <Tag
-            size={'md'}
-            variant={'subtle'}
-            colorScheme={'blackAlpha'}
-            mt={4}
-            cursor={'default'}
-          >
-            <TagLabel>Resume</TagLabel>
-            <ChakraNextLink href="">
-              <Tooltip label="Open in new tab">
-                <TagRightIcon as={ExternalLinkIcon} boxSize={5} />
-              </Tooltip>
-            </ChakraNextLink>
-            <ChakraNextLink href="">
-              <Tooltip label="Download">
-                <TagRightIcon as={DownloadIcon} boxSize={5} />
-              </Tooltip>
-            </ChakraNextLink>
-          </Tag>
+          <ChakraNextLink href="#" color="telegram.500">
+            Resume
+            <Tooltip label="Download">
+              <DownloadIcon mx={3} />
+            </Tooltip>
+          </ChakraNextLink>
         </Flex>
       </Flex>
 
@@ -209,10 +200,13 @@ export default function About() {
 
         <Divider orientation="vertical" />
 
-        {/* Meeting */}
+        {/* Contact */}
         <Card heading="Contact">
           <Text mb={4}>
-            Want to hear more about me, hire me, or simply have a chat?
+            Interested in learning more about me, hiring me, or simply having a
+            chat? Don't hesitate to reach out: Email: contact@nelsonha.io Phone:
+            [+1234567890] Alternatively, you can use the contact form on my
+            website to get in touch.
           </Text>
           <Button
             rightIcon={<BsFillCalendar2EventFill />}
@@ -231,28 +225,41 @@ export default function About() {
       <Divider mb={6} />
 
       <Flex flexDirection={'column'} alignItems={'center'} my={6}>
-        <Heading as={'h3'} fontSize={'x-large'} id="tech-matrix">
-          My frequently used technologies:
-        </Heading>
-        <SimpleGrid
-          mt={{ base: 0, md: 8 }}
-          columns={{ base: 1, md: 2 }}
-          spacingX={1}
-          spacingY={10}
-          w={'100%'}
-        >
-          {/* {gridWithTitle(
-            'Programming Languages',
-            useMemo(() => ABOUT_PAGE_LANGUAGES, [])
-          )} */}
-          {useMemo(
-            () => gridWithTitle('Programming Languages', ABOUT_PAGE_LANGUAGES),
-            []
-          )}
-          {gridWithTitle('Frameworks & Libraries', ABOUT_PAGE_FRAMEWORKS)}
-          {gridWithTitle('Tools', ABOUT_PAGE_TOOLS)}
-          {gridWithTitle('Other  & Miscellanious', ABOUT_PAGE_LIBRARIES)}
-        </SimpleGrid>
+        <Flex flexDirection="row">
+          <Heading as={'h3'} fontSize={'x-large'} id="tech-matrix">
+            My frequently used technologies:
+          </Heading>{' '}
+          <FormControl display="flex" alignItems="center">
+            <FormLabel htmlFor="use-list" mb="0">
+              List view
+            </FormLabel>
+            <Switch
+              id="use-list"
+              isChecked={isListView}
+              onChange={(_e) => {
+                setIsListView(!isListView)
+              }}
+            />
+          </FormControl>
+        </Flex>
+        {isListView ? (
+          <TechList />
+        ) : (
+          <SimpleGrid
+            mt={{ base: 0, md: 8 }}
+            columns={{ base: 1, md: 2 }}
+            spacingX={1}
+            spacingY={10}
+            w={'100%'}
+          >
+            <>
+              {gridWithTitle('Programming Languages', ABOUT_PAGE_LANGUAGES)}
+              {gridWithTitle('Frameworks & Libraries', ABOUT_PAGE_FRAMEWORKS)}
+              {gridWithTitle('Development tools', ABOUT_PAGE_TOOLS)}
+              {gridWithTitle('Cloud & Infrastructure', ABOUT_PAGE_LIBRARIES)}
+            </>
+          </SimpleGrid>
+        )}
       </Flex>
 
       <Accordion allowToggle allowMultiple defaultIndex={[0, 1, 2, 3]}>
@@ -265,11 +272,8 @@ export default function About() {
             'Frameworks & Libraries',
             ABOUT_PAGE_FRAMEWORKS
           )}
-          {techAccordionItemMobile('Tools', ABOUT_PAGE_TOOLS)}
-          {techAccordionItemMobile(
-            'Other  & Miscellanious',
-            ABOUT_PAGE_LIBRARIES
-          )}
+          {techAccordionItemMobile('Development tools', ABOUT_PAGE_TOOLS)}
+          {techAccordionItemMobile('Cloud & Infrastructure', ABOUT_PAGE_CLOUD)}
         </AccordionItem>
 
         <AccordionItem>

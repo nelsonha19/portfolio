@@ -32,7 +32,8 @@ const Home: NextPage = () => {
           >
             <Image
               // className={isDark && 'grayscale'}
-              src="/portrait.png"
+              src="/avatar2.png"
+              // src="/portrait.png"
               boxSize={{ base: '120px', md: '160px' }}
               alt="te"
               borderRadius={'full'}
@@ -63,15 +64,9 @@ const Home: NextPage = () => {
             </Heading>
           </Flex>
           <Text maxW={'75%'}>
-            I&apos;m a full-stack software engineer with 3 years experience
-            currently working at Commonwealth Bank.{' '}
-            <ChakraNextLinkButton
-              href={'/about'}
-              variant="link"
-              rightIcon={<ArrowForwardIcon />}
-            >
-              Learn more about me
-            </ChakraNextLinkButton>
+            Experienced Full Stack Engineer with 3 Years of Expertise in React
+            and .NET: Delivering End-to-End Solutions and High-Quality Code with
+            CI/CD{' '}
           </Text>
           <Flex mt={12}>
             <Button
@@ -81,6 +76,14 @@ const Home: NextPage = () => {
             >
               Contact Me 💬
             </Button>
+            <ChakraNextLinkButton
+              href={'/about'}
+              mx={3}
+              variant="link"
+              rightIcon={<ArrowForwardIcon />}
+            >
+              Learn more about me
+            </ChakraNextLinkButton>
             <ContactModal
               isOpen={contactModal}
               closeModal={() => setContactModal(false)}

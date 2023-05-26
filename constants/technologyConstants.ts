@@ -129,14 +129,7 @@ export const ABOUT_PAGE_LANGUAGES: techArrayType[] = [
     type: 'language',
     colorScheme: 'whatsapp',
   },
-  {
-    name: 'nodejs',
-    svgPath: `/svg/languages/nodejs.svg`,
-    tooltipText: 'Node',
-    type: 'language',
-    colorScheme: 'whatsapp',
-    shouldInvert: true,
-  },
+
   {
     name: 'css',
     svgPath: `/svg/languages/css3.svg`,
@@ -183,7 +176,16 @@ export const ABOUT_PAGE_FRAMEWORKS: techArrayType[] = [
     tooltipText: 'Redux',
     colorScheme: 'blue',
   },
-
+]
+export const ABOUT_PAGE_LIBRARIES: techArrayType[] = [
+  {
+    name: 'nodejs',
+    svgPath: `/svg/languages/nodejs.svg`,
+    tooltipText: 'Node',
+    type: 'language',
+    colorScheme: 'whatsapp',
+    shouldInvert: true,
+  },
   {
     name: 'babel',
     type: 'framework',
@@ -205,8 +207,6 @@ export const ABOUT_PAGE_FRAMEWORKS: techArrayType[] = [
     tooltipText: '.NET',
     colorScheme: 'blue',
   },
-]
-export const ABOUT_PAGE_LIBRARIES: techArrayType[] = [
   {
     name: 'git',
     type: 'library',
@@ -214,13 +214,7 @@ export const ABOUT_PAGE_LIBRARIES: techArrayType[] = [
     tooltipText: 'Git',
     colorScheme: 'gray',
   },
-  {
-    name: 'mongodb',
-    type: 'library',
-    svgPath: `/svg/frameworks/mongodb.svg`,
-    tooltipText: 'MongoDB',
-    colorScheme: 'gray',
-  },
+
   {
     name: 'selenium',
     type: 'library',
@@ -238,28 +232,6 @@ export const ABOUT_PAGE_LIBRARIES: techArrayType[] = [
 ]
 export const ABOUT_PAGE_TOOLS: techArrayType[] = [
   {
-    name: 'aws',
-    type: 'tools',
-    svgPath: `/svg/tools/aws.svg`,
-    tooltipText: 'Amazon Web Services',
-    colorScheme: 'pink',
-    shouldInvert: true,
-  },
-  {
-    name: 'azure',
-    type: 'tools',
-    svgPath: `/svg/tools/azure.svg`,
-    tooltipText: 'Azure',
-    colorScheme: 'pink',
-  },
-  {
-    name: 'docker',
-    type: 'tools',
-    svgPath: `/svg/tools/docker.svg`,
-    tooltipText: 'Docker',
-    colorScheme: 'pink',
-  },
-  {
     name: 'teamcity',
     type: 'tools',
     svgPath: `/svg/tools/teamcity.svg`,
@@ -274,7 +246,42 @@ export const ABOUT_PAGE_TOOLS: techArrayType[] = [
     colorScheme: 'pink',
     shouldInvert: true,
   },
+  {
+    name: 'babel',
+    type: 'framework',
+    svgPath: `/svg/libraries/babel.svg`,
+    tooltipText: 'Babel',
+    colorScheme: 'blue',
+  },
+  {
+    name: 'webpack',
+    type: 'framework',
+    svgPath: `/svg/libraries/webpack.svg`,
+    tooltipText: 'Webpack',
+    colorScheme: 'blue',
+  },
+  {
+    name: 'git',
+    type: 'library',
+    svgPath: `/svg/tools/git.svg`,
+    tooltipText: 'Git',
+    colorScheme: 'gray',
+  },
 
+  {
+    name: 'selenium',
+    type: 'library',
+    svgPath: `/svg/tools/selenium.svg`,
+    tooltipText: 'Selenium',
+    colorScheme: 'gray',
+  },
+  {
+    name: 'postman',
+    type: 'library',
+    svgPath: `/svg/tools/postman-api.svg`,
+    tooltipText: 'Postman',
+    colorScheme: 'gray',
+  },
   {
     name: 'visual-studio',
     type: 'tools',
@@ -304,7 +311,37 @@ export const ABOUT_PAGE_TOOLS: techArrayType[] = [
     colorScheme: 'pink',
   },
 ]
-
+export const ABOUT_PAGE_CLOUD = [
+  {
+    name: 'aws',
+    type: 'tools',
+    svgPath: `/svg/tools/aws.svg`,
+    tooltipText: 'Amazon Web Services',
+    colorScheme: 'pink',
+    shouldInvert: true,
+  },
+  {
+    name: 'azure',
+    type: 'tools',
+    svgPath: `/svg/tools/azure.svg`,
+    tooltipText: 'Azure',
+    colorScheme: 'pink',
+  },
+  {
+    name: 'docker',
+    type: 'tools',
+    svgPath: `/svg/tools/docker.svg`,
+    tooltipText: 'Docker',
+    colorScheme: 'pink',
+  },
+  {
+    name: 'mongodb',
+    type: 'library',
+    svgPath: `/svg/frameworks/mongodb.svg`,
+    tooltipText: 'MongoDB',
+    colorScheme: 'gray',
+  },
+]
 export const ALL_TECH_ARRAY: techArrayType[] = ABOUT_PAGE_LANGUAGES.concat(
   ABOUT_PAGE_FRAMEWORKS,
   ABOUT_PAGE_TOOLS,
